@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import THEME from '@/constants/themes'
@@ -18,7 +19,7 @@ const Navigator = styled.div`
   margin-right: 186;
 `
 
-const Route = styled.p`
+const Route = styled(Link)`
   color: ${THEME.NAVIGATION_COLOR};
   font-family: PoppinsLight, sans-serif;
   font-size: 20px;
