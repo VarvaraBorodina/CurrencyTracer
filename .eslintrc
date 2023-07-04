@@ -13,9 +13,10 @@
     "airbnb",
     "airbnb-typescript",
     "prettier",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:styled-components-a11y/recommended"
   ],
-  "plugins": ["simple-import-sort"],
+  "plugins": ["simple-import-sort", "styled-components-a11y"],
   "rules": {
     "no-unused-vars": "off",
     "no-console": "warn",
@@ -40,7 +41,8 @@
         "ts": "never",
         "tsx": "never"
       }
-    ]
+    ],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   },
   "settings": {
     "react": {
