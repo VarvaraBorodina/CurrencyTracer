@@ -1,0 +1,21 @@
+const COLOR_THEMES = {
+  DARCK: {
+    MAIN_COLOR: '#000000',
+    TEXT_COLOR: '#D9D9D9',
+    NAVIGATION_COLOR: '#FFFFFF',
+  },
+}
+
+const STYLES_THEME = {
+  NAVIGATION_HEIGHT: 103,
+  TOGGLE_HEIGHT: 27,
+  TOGGLE_WIDHT: 50,
+  TOGGLE_BORDER_SIZE: 1,
+}
+
+const THEME = {
+  ...COLOR_THEMES.DARCK,
+  ...STYLES_THEME,
+}
+
+export default THEME

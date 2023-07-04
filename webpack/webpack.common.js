@@ -20,6 +20,14 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(png|jp(e*)g|svg|gif)$/,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.(ttf|otf|eot|woff|woff2)$/,
+        use: 'file-loader?name=fonts/[name].[ext]!static',
+      },
     ],
   },
   output: {
@@ -28,7 +36,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '..', './src/index.html'),
+      template: path.resolve(__dirname, '..', './public/index.html'),
     }),
   ],
   stats: 'errors-only',
