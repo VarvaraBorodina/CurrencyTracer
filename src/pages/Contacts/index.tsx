@@ -1,9 +1,8 @@
 import React from 'react'
 
-class Contacts extends React.PureComponent {
-  render() {
-    return <div style={{ color: '#fff' }}>Contacts</div>
-  }
-}
+import ContactsInfo from '@/components/ContactsInfo'
 
+const Contacts = () => {
+  return <ContactsInfo />
+}
 export default Contacts
