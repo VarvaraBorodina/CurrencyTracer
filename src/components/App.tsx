@@ -1,8 +1,9 @@
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
+import { PersistGate } from 'redux-persist/integration/react'
 
 import Router from '@/router/Router'
-import store from '@/store'
+import { persistor, store } from '@/store'
 import Global from '@/styles/global'
 
 import Footer from './Footer'
@@ -12,14 +13,16 @@ import Header from './Header'
 const App = () => {
   return (
     <Provider store={store}>
-      <GlobalThemProvider>
-        <BrowserRouter>
-          <Global />
-          <Header />
-          <Router />
-          <Footer />
-        </BrowserRouter>
-      </GlobalThemProvider>
+      <PersistGate persistor={persistor}>
+        <GlobalThemProvider>
+          <BrowserRouter>
+            <Global />
+            <Header />
+            <Router />
+            <Footer />
+          </BrowserRouter>
+        </GlobalThemProvider>
+      </PersistGate>
     </Provider>
   )
 }
