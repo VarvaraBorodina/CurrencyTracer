@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
-import THEME from '@/constants/themes'
-
 const Container = styled.div`
   margin: 0 auto;
-  width: 1216px;
+  width: ${(props): number => props.theme.FOOTER_WIDTH}px;
   aligt-item: center;
+  background-color: ${(props): string => props.theme.MAIN_COLOR};
 `
 
 const TitleContainer = styled.div`
@@ -13,17 +12,16 @@ const TitleContainer = styled.div`
 `
 
 const Title = styled.h1`
-  margin-left: 10px;
-  margin-top: 5px;
-  font-family: PoppinsLight;
-  font-size: 26px;
-  font-weight: 600;
-  line-height: 39px;
+  margin-top: ${(props): number => props.theme.FOOTER_MARGIN / 2}px;
+  font-family: PoppinsSemiBold;
+  font-size: ${(props): number => props.theme.FOOTER_TITLE_FONT_SIZE}px;
+  font-weight: ${(props): number => props.theme.FONT_WEIGHT_SEMI_BOLD};
+  line-height: ${(props): number => props.theme.FOOTER_TITLE_LINE_HEIGHT}px;
   background-image: linear-gradient(
     90.18deg,
-    #00ce2c 0.18%,
-    #aedf23 49.3%,
-    #a3dc00 99.88%
+    ${(props): string => props.theme.TITLE_LEFT_COLOR} 0.18%,
+    ${(props): string => props.theme.TITLE_CENTER_COLOR} 49.3%,
+    ${(props): string => props.theme.TITLE_RIGHT_COLOR} 99.88%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -31,49 +29,50 @@ const Title = styled.h1`
 const Info = styled.div``
 
 const Description = styled.p`
-  width: 460px;
-  margin-top: 30px;
+  width: ${(props): number => props.theme.FOOTER_DECRIPTION_WIDTH}px;
+  margin-top: ${(props): number => props.theme.FOOTER_MARGIN * 3}px;
   font-family: PoppinsLight;
-  font-size: 24px;
-  font-weight: 300;
-  line-height: 36px;
-  color: ${THEME.NAVIGATION_COLOR};
+  font-size: ${(props): number => props.theme.FOOTER_DECRIPTION_FONT_SIZE}px;
+  font-weight: ${(props): number => props.theme.FONT_WEIGHT_LIGHT};
+  line-height: ${(props): number =>
+    props.theme.FOOTER_DESCRIPTION_LINE_HEIGHT}px;
+  color: ${(props): string => props.theme.NAVIGATION_COLOR};
 `
 
 const MenuOption = styled.div`
-  margin-right: 100px;
+  margin-left: ${(props): number => props.theme.FOOTER_MARGIN * 10}px;
 `
 
 const OptionTitle = styled.h6`
-  margin-bottom: 30px;
-  color: ${THEME.NAVIGATION_COLOR};
+  margin-bottom: ${(props): number => props.theme.FOOTER_MARGIN * 3}px;
+  color: ${(props): string => props.theme.NAVIGATION_COLOR};
   font-family: InterRegular;
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 42px;
+  font-size: ${(props): number => props.theme.FOOTER_OPTION_FONT_SIZE}px;
+  font-weight: ${(props): number => props.theme.FONT_WEIGHT_REGULAR};
+  line-height: ${(props): number => props.theme.FOOTER_OPTION_LINE_HEIGHT}px;
 `
 
 const SubOption = styled.p`
-  margin-bottom: 20px;
-  color: #898989;
-  font-family: InterRegular, sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 29px;
+  margin-bottom: ${(props): number => props.theme.FOOTER_MARGIN * 3}px;
+  color: ${(props): string => props.theme.LIGHTER_TEXT_COLOR};
+  font-family: InterRegular;
+  font-size: ${(props): number => props.theme.FOOTER_TEXT_FONT_SIZE}px;
+  font-weight: ${(props): number => props.theme.FONT_WEIGHT_REGULAR};
+  line-height: ${(props): number => props.theme.FOOTER_OPTION_LINE_HEIGHT}px;
 `
 
 const Menu = styled.div`
   display: flex;
 `
 const Policy = styled.p`
-  margin-top: 50px;
-  margin-bottom: 30px;
+  margin-top: ${(props): number => props.theme.FOOTER_MARGIN * 5}px;
+  margin-bottom: ${(props): number => props.theme.FOOTER_MARGIN * 3}px;
   text-align: center;
-  color: #898989;
+  color: ${(props): string => props.theme.LIGHTER_TEXT_COLOR};
   font-family: InterRegular;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 29px;
+  font-size: ${(props): number => props.theme.FOOTER_TEXT_FONT_SIZE}px;
+  font-weight: ${(props): number => props.theme.FONT_WEIGHT_REGULAR};
+  line-height: ${(props): number => props.theme.FOOTER_OPTION_LINE_HEIGHT}px;
 `
 
 const Content = styled.div`

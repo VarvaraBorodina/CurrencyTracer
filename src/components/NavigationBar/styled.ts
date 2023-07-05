@@ -1,31 +1,31 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import THEME from '@/constants/themes'
-
 const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${THEME.NAVIGATION_HEIGHT}px;
-  background-color: ${THEME.MAIN_COLOR};
+  height: ${(props): number => props.theme.NAVIGATION_HEIGHT}px;
 `
 
 const Navigator = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 657;
-  margin-left: 186;
-  margin-right: 186;
+  width: ${(props): number => props.theme.NAVIGATOR_WIDTH}px;
+  margin-left: ${(props): number => props.theme.NAVIGATOR_MARGIN}px;
+  margin-right: ${(props): number => props.theme.NAVIGATOR_MARGIN}px;
 `
 
 const Route = styled(Link)`
-  color: ${THEME.NAVIGATION_COLOR};
-  font-family: PoppinsLight, sans-serif;
-  font-size: 20px;
-  font-weight: 300;
-  line-height: 41px;
+  color: ${(props): string => props.theme.NAVIGATION_COLOR};
+  font-family: PoppinsLight;
+  font-size: ${(props): number => props.theme.NAVIGATOR_FONT_SIZE}px;
+  font-weight: ${(props): number => props.theme.FONT_WEIGHT_LIGHT}px;
   cursor: pointer;
+  transition: all 0.3s ease-out;
+  &:hover {
+    color: ${(props): string => props.theme.LOGO_TOP_COLOR};
+  }
 `
 
 export { Container, Navigator, Route }

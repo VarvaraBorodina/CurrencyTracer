@@ -1,50 +1,49 @@
 import styled from 'styled-components'
 
-import THEME from '@/constants/themes'
-
 const Container = styled.div`
   display: flex;
-  height: 417px;
+  height: ${(props): number => props.theme.HEADER_HEIGHT}px;
   align-items: center;
-  border: 4px solid ${THEME.MAIN_COLOR};
+  margin-left: ${(props): number => props.theme.HEADER_MARGIN}px;
+  margin-right: ${(props): number => props.theme.HEADER_MARGIN}px;
   background: linear-gradient(
     252deg,
-    rgba(18, 18, 18, 1) 0%,
-    rgba(15, 36, 23, 1) 50%,
-    rgba(4, 6, 5, 1) 100%
+    ${(props): string => props.theme.GRADIENT_MAIN_COLOR} 0%,
+    ${(props): string => props.theme.GRADIENT_CENTER_COLOR} 50%,
+    ${(props): string => props.theme.GRADIENT_MAIN_COLOR} 100%
   );
 `
 
 const TitleContainer = styled.div`
-  width: 691px;
-  margin-right: 100px;
-  margin-left: 80px;
+  width: ${(props): number => props.theme.HEADER_TITLE_WIDTH}px;
+  margin-right: ${(props): number => props.theme.HEADER_TITLE_MARGIN_RIGHT}px;
+  margin-left: ${(props): number => props.theme.HEADER_TITLE_MARGIN_LEFT}px;
 `
 
 const Title = styled.h1`
   font-family: 'PoppinsSemiBold';
-  font-size: 76px;
-  font-weight: 600;
-  line-height: 114px;
+  font-size: ${(props): number => props.theme.HEADER_TITLE_FONT_SIZE}px;
+  font-weight: ${(props): number => props.theme.FONT_WEIGHT_SEMI_BOLD};
+  line-height: ${(props): number => props.theme.HEADER_TITLE_LINE_HEIGHT}px;
   text-align: right;
   background-image: linear-gradient(
     90.18deg,
-    #00ce2c 0.18%,
-    #aedf23 49.3%,
-    #a3dc00 99.88%
+    ${(props): string => props.theme.TITLE_LEFT_COLOR} 0.18%,
+    ${(props): string => props.theme.TITLE_CENTER_COLOR} 49.3%,
+    ${(props): string => props.theme.TITLE_RIGHT_COLOR} 99.88%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `
 
 const SubTitle = styled.p`
-  width: 397px;
-  margin-left: 397;
-  color: ${THEME.TEXT_COLOR};
+  width: ${(props): number => props.theme.HEADER_SUBTITLE_WIDTH}px;
+  margin-left: ${(props): number => props.theme.HEADER_SUBTITLE_WIDTH}px;
+  color: ${(props): string => props.theme.TEXT_COLOR};
   font-family: PoppinsLight;
-  font-size: 25px;
-  font-weight: 300;
-  line-height: 47px;
+  font-size: ${(props): number => props.theme.HEADER_SUBTITLE_FONT_SIZE}px;
+  font-weight: ${(props): number => props.theme.FONT_WEIGHT_LIGHT};
+  line-height: ${(props): number => props.theme.HEADER_SUBTITLE_LINE_HEIGHT}px;
   text-align: center;
 `
 
