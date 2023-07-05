@@ -1,4 +1,4 @@
-import { STYLES_THEME } from '@/constants/themes'
+import { COLORS } from '@/constants/themes'
 
 type LogoProps = {
   height: number
@@ -39,8 +39,8 @@ const Logo = ({ height, width }: LogoProps) => {
           y2="38.6506"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor={STYLES_THEME.LOGO_TOP_COLOR} />
-          <stop offset="1" stopColor={STYLES_THEME.LOGO_BOTTOM_COLOR} />
+          <stop stopColor={COLORS.LOGO_TOP} />
+          <stop offset="1" stopColor={COLORS.LOGO_BOTTOM} />
         </linearGradient>
         <linearGradient
           id="paint1_linear_1_1045"
@@ -50,8 +50,8 @@ const Logo = ({ height, width }: LogoProps) => {
           y2="30.0694"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor={STYLES_THEME.LOGO_TOP_COLOR} />
-          <stop offset="1" stopColor={STYLES_THEME.LOGO_BOTTOM_COLOR} />
+          <stop stopColor={COLORS.LOGO_TOP} />
+          <stop offset="1" stopColor={COLORS.LOGO_BOTTOM} />
         </linearGradient>
       </defs>
     </svg>

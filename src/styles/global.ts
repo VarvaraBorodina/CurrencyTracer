@@ -40,6 +40,6 @@ export default createGlobalStyle`
     }
   }
 body {
-  background: ${(props): string => props.theme.MAIN_COLOR};
+  background: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.MAIN_COLOR};
 }
 `
