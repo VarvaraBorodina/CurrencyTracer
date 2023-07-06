@@ -14,42 +14,51 @@ export const QUOTES = [
   {
     name: 'Commercial Dollar',
     svg: <Dollar />,
+    code: 'USD',
   },
   {
     name: 'Argentine Peso',
     svg: <Peso />,
+    code: 'ARS',
   },
   {
     name: 'Libra',
     svg: <Libra />,
+    code: 'GBP',
   },
   {
     name: 'Bitcoin',
     svg: <Bitcoin />,
+    code: 'BTC',
   },
   {
     name: 'Australian Dollar',
     svg: <AustralianDollar />,
+    code: 'AUD',
   },
   {
     name: 'Yuan',
     svg: <Yuan />,
+    code: 'CNY',
   },
   {
     name: 'Yen',
     svg: <Yen />,
+    code: 'JPY',
   },
   {
     name: 'Canadian Dollar',
     svg: <CanadianDollar />,
+    code: 'CAD',
   },
   {
     name: 'Euro',
     svg: <Euro />,
+    code: 'EUR',
   },
 ]
 
-export const STONKS = [
+export const STOCKS = [
   {
     name: 'IFIX',
     svg: <IFIX />,
@@ -59,3 +68,5 @@ export const STONKS = [
     svg: <Bovespa />,
   },
 ]
+
+export const BASE_CURRENCY = QUOTES[0].code

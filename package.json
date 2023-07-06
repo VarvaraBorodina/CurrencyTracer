@@ -23,6 +23,8 @@
   "homepage": "https://github.com/VarvaraBorodina/CurrencyTracer#readme",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+    "@types/axios": "^0.14.0",
+    "axios": "^1.4.0",
     "file-loader": "^6.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -50,6 +52,8 @@
     "babel-loader": "^9.1.2",
     "babel-plugin-inline-react-svg": "^2.0.2",
     "css-loader": "^6.8.1",
+    "dotenv": "^16.3.1",
+    "dotenv-webpack": "^8.0.1",
     "eslint": "^8.0.1",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
