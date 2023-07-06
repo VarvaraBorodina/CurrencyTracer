@@ -12,6 +12,9 @@ const Container = styled.div`
   cursor: pointer;
 `
 const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin-left: ${({ theme: { SPACES } }) => SPACES.M};
 `
 
