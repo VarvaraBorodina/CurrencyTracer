@@ -10,6 +10,7 @@ const parseCurrency = (currenciesValues): Currency[] => {
       name,
       svg,
       value: currenciesValues[code].value,
+      code,
     }
   })
 }

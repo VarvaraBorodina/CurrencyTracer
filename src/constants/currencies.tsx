@@ -1,10 +1,8 @@
 import { ReactComponent as AustralianDollar } from '../assets/icons/AustralianDollar.svg'
 import { ReactComponent as Bitcoin } from '../assets/icons/Bitcoin.svg'
-import { ReactComponent as Bovespa } from '../assets/icons/Bovespa.svg'
 import { ReactComponent as CanadianDollar } from '../assets/icons/CanadianDollar.svg'
 import { ReactComponent as Dollar } from '../assets/icons/Dollar.svg'
 import { ReactComponent as Euro } from '../assets/icons/Euro.svg'
-import { ReactComponent as IFIX } from '../assets/icons/IFIX.svg'
 import { ReactComponent as Libra } from '../assets/icons/Libra.svg'
 import { ReactComponent as Peso } from '../assets/icons/Peso.svg'
 import { ReactComponent as Yen } from '../assets/icons/Yen.svg'
@@ -55,17 +53,6 @@ export const QUOTES = [
     name: 'Euro',
     svg: <Euro />,
     code: 'EUR',
-  },
-]
-
-export const STOCKS = [
-  {
-    name: 'IFIX',
-    svg: <IFIX />,
-  },
-  {
-    name: 'Buvespa',
-    svg: <Bovespa />,
   },
 ]
 
