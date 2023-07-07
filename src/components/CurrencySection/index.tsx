@@ -16,9 +16,16 @@ import { Container, CurrencyContainer, Line, Title } from './styled'
 
 type CurrencySectionProps = {
   title: string
+  handleOnCurrencyCardClick: (
+    currencyCode: string,
+    currencyName: string
+  ) => void
 }
 
-const CurrencySection = ({ title }: CurrencySectionProps) => {
+const CurrencySection = ({
+  title,
+  handleOnCurrencyCardClick,
+}: CurrencySectionProps) => {
   const [isError, setIsError] = useState<boolean>(false)
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
@@ -75,8 +82,12 @@ const CurrencySection = ({ title }: CurrencySectionProps) => {
       ) : (
         <CurrencyContainer>
           {quotesFromStorage &&
-            quotesFromStorage.map(({ name, value, svg }) => (
-              <CurrencyCard name={name} value={value} svg={svg} key={name} />
+            quotesFromStorage.map((quote) => (
+              <CurrencyCard
+                currency={quote}
+                key={quote.name}
+                handleOnClick={handleOnCurrencyCardClick}
+              />
             ))}
         </CurrencyContainer>
       )}

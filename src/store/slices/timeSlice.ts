@@ -7,7 +7,6 @@ const timeSlice = createSlice({
   initialState,
   reducers: {
     setUpdateTime() {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-param-reassign
       return new Date().getTime()
     },
   },

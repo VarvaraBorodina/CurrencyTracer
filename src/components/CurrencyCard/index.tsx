@@ -1,9 +1,15 @@
 import { Container, Info, Title, Value } from './styled'
 import { Currency } from './types'
 
-const CurrencyCard = ({ name, value, svg }: Currency) => {
+type CurrencyCardType = {
+  currency: Currency
+  handleOnClick: (currencyCode: string, currencyName: string) => void
+}
+
+const CurrencyCard = ({ currency, handleOnClick }: CurrencyCardType) => {
+  const { svg, code, name, value } = currency
   return (
-    <Container>
+    <Container onClick={() => handleOnClick(code, name)}>
       {svg}
       <Info>
         <Title>{name}</Title>
