@@ -11,7 +11,7 @@ import { setUpdateTime } from '@/store/slices/timeSlice'
 import { parseCurrency } from '@/utils/currencyParser'
 
 import CurrencyCard from '../CurrencyCard'
-import Loader from '../Loader/Loader'
+import Loader from '../Loader'
 import { Container, CurrencyContainer, Line, Title } from './styled'
 
 type CurrencySectionProps = {
