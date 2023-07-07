@@ -1,9 +1,15 @@
 import NavigationBar from '@/components/NavigationBar'
+import useTypedSelector from '@/hooks/useTypedSelector'
+import { timestampToHoursMinutes } from '@/utils/formatDate'
 
 import Logo from '../Logo'
+import UpdateTime from '../UpdateTime'
 import { Container, SubTitle, Title, TitleContainer } from './styled'
 
 const Header = () => {
+  const lastUpdateTime: number = useTypedSelector((state) => {
+    return state.time
+  })
   return (
     <>
       <NavigationBar />
@@ -16,6 +22,7 @@ const Header = () => {
         </TitleContainer>
         <Logo width={300} height={312} />
       </Container>
+      <UpdateTime time={timestampToHoursMinutes(lastUpdateTime)} />
     </>
   )
 }

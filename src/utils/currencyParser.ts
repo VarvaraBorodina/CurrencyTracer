@@ -14,4 +14,20 @@ const parseCurrency = (currenciesValues): Currency[] => {
     }
   })
 }
-export default parseCurrency
+
+const getCurreenciesNames = (): string[] => {
+  return QUOTES.map((quote) => quote.name)
+}
+
+const getCurreencyByName = (name: string): Currency | null => {
+  const currencyInfo = QUOTES.find((quote) => quote.name === name)
+  if (!currencyInfo) return null
+  return {
+    value: 1,
+    name: currencyInfo?.name,
+    code: currencyInfo?.code,
+    svg: currencyInfo?.svg,
+  }
+}
+
+export { getCurreenciesNames, getCurreencyByName, parseCurrency }

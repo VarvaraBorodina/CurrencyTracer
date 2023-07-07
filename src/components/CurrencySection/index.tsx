@@ -8,7 +8,7 @@ import useTypedDispatch from '@/hooks/useTypedDispatch'
 import useTypedSelector from '@/hooks/useTypedSelector'
 import { setQuotes } from '@/store/slices/quotesSlice'
 import { setUpdateTime } from '@/store/slices/timeSlice'
-import parseCurrency from '@/utils/currencyParser'
+import { parseCurrency } from '@/utils/currencyParser'
 
 import CurrencyCard from '../CurrencyCard'
 import Loader from '../Loader/Loader'

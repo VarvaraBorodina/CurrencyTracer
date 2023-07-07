@@ -3,15 +3,9 @@ import { useState } from 'react'
 import CurrencyModal from '@/components/CurrencyModal'
 import CurrencySection from '@/components/CurrencySection'
 import Modal from '@/components/Modal/indes'
-import UpdateTime from '@/components/UpdateTime'
-import useTypedSelector from '@/hooks/useTypedSelector'
-import { timestampToHoursMinutes } from '@/utils/formatDate'
+import { BASE_CURRENCY, QUOTES } from '@/constants/currencies'
 
 const Home = () => {
-  const lastUpdateTime: number = useTypedSelector((state) => {
-    return state.time
-  })
-
   const [isModalActive, setIsModalActive] = useState(false)
   const [activeCurrencyCode, setActiveCurrencyCode] = useState('')
 
@@ -22,9 +16,10 @@ const Home = () => {
 
   return (
     <div>
-      <UpdateTime time={timestampToHoursMinutes(lastUpdateTime)} />
       <CurrencySection
-        title="Quotes"
+        title={`Quotes (against ${
+          QUOTES.find((quote) => quote.code === BASE_CURRENCY)?.name
+        })`}
         handleOnCurrencyCardClick={handleOnCurrencyCardClick}
       />
       {isModalActive && (

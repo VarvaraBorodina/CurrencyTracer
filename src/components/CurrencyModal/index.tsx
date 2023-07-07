@@ -31,7 +31,11 @@ const CurrencyModal = ({ code }: CurrencyModalType) => {
         const currencyResponse = (await response.data).data[
           selectedCurrencyCode
         ]
-        setModalMessage(`Exchange Rates: ${currencyResponse.value}`)
+        setModalMessage(
+          `1 ${
+            QUOTES.find((quote) => quote.code === selectedCurrencyCode)?.name
+          } = ${currencyResponse.value.toFixed(5)} ${currency?.name}`
+        )
         setIsLoading(false)
       } catch (error) {
         console.log(error)
