@@ -8,7 +8,7 @@ const Input = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: ${({ theme: { SIZES } }) => SIZES.CARD_WIDTH * 0.75}px;
+  width: ${({ theme: { SIZES } }) => SIZES.CARD_WIDTH}px;
   height: ${({ theme: { SIZES } }) => SIZES.NAVIGATION_HEIGHT * 0.6}px;
 
   border: ${({ theme: { SIZES } }) => SIZES.TOGGLE_BORDER_SIZE}px solid
@@ -31,8 +31,8 @@ const OptionContainer = styled.div`
   position: absolute;
   top: ${({ theme: { SIZES } }) => SIZES.NAVIGATION_HEIGHT * 0.7}px;
   left: 0;
-  width: ${({ theme: { SIZES } }) => SIZES.CARD_WIDTH * 0.75}px;
-  max-height: ${({ theme: { SIZES } }) => SIZES.CARD_WIDTH / 2}px;
+  width: ${({ theme: { SIZES } }) => SIZES.CARD_WIDTH}px;
+  max-height: ${({ theme: { SIZES } }) => SIZES.CARD_WIDTH * 1.5}px;
   padding: ${({ theme: { SPACES } }) => SPACES.S};
 
   background-color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.MAIN_COLOR};

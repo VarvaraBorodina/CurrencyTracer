@@ -56,4 +56,6 @@ export const QUOTES = [
   },
 ]
 
+export const QUOTES_WITH_CHART = ['EUR', 'CAD', 'JPY', 'AUD', 'GBP', 'USD']
+
 export const BASE_CURRENCY = QUOTES[0].code
