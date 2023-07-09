@@ -19,6 +19,7 @@ export const COLOR_THEMES = {
     GRADIENT_CENTER_COLOR: '#B3FCB4',
     CARD_BORDER_COLOR: '#95C296',
     CARD_COLOR: '#DCF2DE',
+    SEARCH_COLOR: '#B3FCB4',
   },
 }
 
