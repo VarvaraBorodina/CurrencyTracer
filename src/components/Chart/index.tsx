@@ -8,7 +8,7 @@ import chartParamsObserver, {
 import { getCurreencyByName } from '@/utils/currencyParser'
 import { getLastMonthDates } from '@/utils/formatDate'
 
-import { getMonthInfo } from '../api'
+import { getMonthInfo } from '../../api'
 import Loader from '../Loader'
 
 type ChartType = {

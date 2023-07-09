@@ -34,7 +34,7 @@ class ChartModal extends React.Component<
     this.setState({ isModalActive: true })
     this.timerId = setTimeout(() => {
       this.setState({ isModalActive: false })
-    }, 2000)
+    }, 1000)
   }
 
   render() {

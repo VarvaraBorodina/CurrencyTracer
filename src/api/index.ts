@@ -12,10 +12,10 @@ const getMonthInfo = async (
   const monthValues = []
   for (let i = 0; i < dates.length; i++) {
     const response = await axios.get(
-      `${URL_HISTORY}?base=${baseCurrency}&date=${dates[i]}`
+      `${URL_HISTORY}?base=${currency}&date=${dates[i]}`
     )
     const data = await response.data
-    monthValues.push(Number(data.rates[currency]))
+    monthValues.push(Number(data.rates[baseCurrency]))
   }
   return monthValues
 }

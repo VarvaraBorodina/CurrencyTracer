@@ -8,6 +8,7 @@ export const COLOR_THEMES = {
     GRADIENT_CENTER_COLOR: '#0A2413',
     CARD_BORDER_COLOR: '#474747',
     CARD_COLOR: '#202025',
+    SEARCH_COLOR: '#1B2028',
   },
   LIGHT: {
     MAIN_COLOR: '#DCFAD9',
@@ -54,6 +55,9 @@ export const SIZES = {
   FOOTER_DECRIPTION_WIDTH: 460,
 
   CARD_WIDTH: 520,
+
+  SEARCH_WIDTH: 450,
+  SEARCH_HEIGHT: 65,
 }
 
 export const FONT_SIZE = {

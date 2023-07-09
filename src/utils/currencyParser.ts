@@ -34,6 +34,14 @@ const getCurreenciesWithChartNames = (): string[] => {
   })
 }
 
+const getCurreenciesNames = (): string[] => {
+  const currensiesNames: string[] = []
+  QUOTES.forEach(({ name }) => {
+    currensiesNames.push(name)
+  })
+  return currensiesNames
+}
+
 const getCurreencyByName = (name: string): Currency | null => {
   const currencyInfo = QUOTES.find((quote) => quote.name === name)
   if (!currencyInfo) return null
@@ -45,4 +53,9 @@ const getCurreencyByName = (name: string): Currency | null => {
   }
 }
 
-export { getCurreenciesWithChartNames, getCurreencyByName, parseCurrency }
+export {
+  getCurreenciesNames,
+  getCurreenciesWithChartNames,
+  getCurreencyByName,
+  parseCurrency,
+}
