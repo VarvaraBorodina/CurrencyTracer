@@ -1,7 +1,6 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-import { URL_LATEST } from '@/constants/api'
+import { getCurrencyValue } from '@/api'
 import { QUOTES } from '@/constants/currencies'
 
 import { Option, OptionContainer, Text } from './styled'
@@ -15,6 +14,7 @@ const CurrencyModal = ({ code }: CurrencyModalType) => {
   const [selectedCurrencyCode, setSelectedCurrencyCode] = useState('')
   const [modalMessage, setModalMessage] = useState('Choose Currency...')
   const [isLoading, setIsLoading] = useState(false)
+  const [isError, setIsError] = useState<boolean>(false)
 
   const handleOnCurrencyClick = (selectedCode: string) => {
     setSelectedCurrencyCode(selectedCode)
@@ -24,21 +24,15 @@ const CurrencyModal = ({ code }: CurrencyModalType) => {
     const fetchCurrencyValue = async () => {
       try {
         setIsLoading(true)
-        const response = await axios.get(
-          `${URL_LATEST}?apikey=${process.env.COIN_API_KEY}&base_currency=${code}&currencies=${selectedCurrencyCode}`
-        )
-
-        const currencyResponse = (await response.data).data[
-          selectedCurrencyCode
-        ]
+        const value = await getCurrencyValue(code, selectedCurrencyCode)
         setModalMessage(
           `1 ${
             QUOTES.find((quote) => quote.code === selectedCurrencyCode)?.name
-          } = ${currencyResponse.value.toFixed(5)} ${currency?.name}`
+          } = ${value} ${currency?.name}`
         )
         setIsLoading(false)
       } catch (error) {
-        console.log(error)
+        setIsError(true)
       }
     }
     if (selectedCurrencyCode) {
@@ -48,6 +42,9 @@ const CurrencyModal = ({ code }: CurrencyModalType) => {
 
   if (!currency) {
     return <Text>Currency not found</Text>
+  }
+  if (isError) {
+    return <Text>Something went wrong...</Text>
   }
   return (
     <>
