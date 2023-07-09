@@ -10,11 +10,13 @@ import { getLastMonthDates } from '@/utils/formatDate'
 
 import { getMonthInfo } from '../../api'
 import Loader from '../Loader'
+import Text from './styled'
 
 type ChartType = {
   values: number[]
   time: string[]
   isLoading: boolean
+  isError: boolean
 }
 
 class Chart extends React.PureComponent<Record<string, never>, ChartType> {
@@ -24,6 +26,7 @@ class Chart extends React.PureComponent<Record<string, never>, ChartType> {
       values: [],
       time: [],
       isLoading: false,
+      isError: false,
     }
   }
 
@@ -35,16 +38,20 @@ class Chart extends React.PureComponent<Record<string, never>, ChartType> {
     currency: string | undefined,
     baseCurrency: string | undefined
   ) => {
-    if (currency && baseCurrency) {
-      this.setState({ isLoading: true })
-      const lastMonthDates = getLastMonthDates()
-      const monthData = await getMonthInfo(
-        lastMonthDates,
-        baseCurrency,
-        currency
-      )
-      this.setState({ values: monthData, time: lastMonthDates })
-      this.setState({ isLoading: false })
+    try {
+      if (currency && baseCurrency) {
+        this.setState({ isLoading: true })
+        const lastMonthDates = getLastMonthDates()
+        const monthData = await getMonthInfo(
+          lastMonthDates,
+          baseCurrency,
+          currency
+        )
+        this.setState({ values: monthData, time: lastMonthDates })
+        this.setState({ isLoading: false })
+      }
+    } catch (error) {
+      this.setState({ isError: true })
     }
   }
 
@@ -58,7 +65,10 @@ class Chart extends React.PureComponent<Record<string, never>, ChartType> {
   }
 
   render() {
-    const { time, values, isLoading } = this.state
+    const { time, values, isLoading, isError } = this.state
+    if (isError) {
+      return <Text>Something went wrong...</Text>
+    }
     return isLoading ? <Loader /> : <ChartView values={values} time={time} />
   }
 }

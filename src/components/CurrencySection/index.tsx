@@ -1,9 +1,8 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
+import { getCurrenciesValues } from '@/api'
 import { Currency } from '@/components/CurrencyCard/types'
-import { CACHE_EXPIRES_TIME, URL_LATEST } from '@/constants/api'
-import { BASE_CURRENCY, QUOTES } from '@/constants/currencies'
+import { CACHE_EXPIRES_TIME } from '@/constants/api'
 import useTypedDispatch from '@/hooks/useTypedDispatch'
 import useTypedSelector from '@/hooks/useTypedSelector'
 import { setQuotes } from '@/store/slices/quotesSlice'
@@ -39,24 +38,17 @@ const CurrencySection = ({
 
   const dispatch = useTypedDispatch()
 
-  useEffect(() => {
-    const fetchQuotes = async () => {
-      try {
-        const response = await axios.get(
-          `${URL_LATEST}?api-key=${
-            process.env.COIN_API_KEY
-          }&base=${BASE_CURRENCY}&currencies=${QUOTES.map(
-            (quote) => quote.code
-          ).join(',')}`
-        )
-        const currenciesValues = (await response.data).data
-        dispatch(setQuotes(currenciesValues))
-        setIsLoading(false)
-      } catch (error) {
-        setIsError(true)
-      }
+  const fetchQuotes = useCallback(async () => {
+    try {
+      const currenciesValues = await getCurrenciesValues()
+      dispatch(setQuotes(currenciesValues))
+      setIsLoading(false)
+    } catch (error) {
+      setIsError(true)
     }
+  }, [])
 
+  useEffect(() => {
     const currentTime: number = new Date().getTime()
     if (
       currentTime - lastUpdateTime > CACHE_EXPIRES_TIME ||
@@ -67,10 +59,10 @@ const CurrencySection = ({
     } else {
       setIsLoading(false)
     }
-  }, [])
+  }, [fetchQuotes])
 
   if (isError) {
-    return <h1>Something went wrong...</h1>
+    return <Title>Something went wrong...</Title>
   }
 
   return (
