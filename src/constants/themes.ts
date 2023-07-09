@@ -19,6 +19,7 @@ export const COLOR_THEMES = {
     GRADIENT_CENTER_COLOR: '#B3FCB4',
     CARD_BORDER_COLOR: '#95C296',
     CARD_COLOR: '#DCF2DE',
+    SEARCH_COLOR: '#B3FCB4',
   },
 }
 
@@ -58,6 +59,8 @@ export const SIZES = {
 
   SEARCH_WIDTH: 450,
   SEARCH_HEIGHT: 65,
+
+  MAP_HEIGHT: 460,
 }
 
 export const FONT_SIZE = {

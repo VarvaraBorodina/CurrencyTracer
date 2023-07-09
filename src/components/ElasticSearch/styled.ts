@@ -51,6 +51,7 @@ const OptionContainer = styled.div`
   margin-top: ${({ theme: { SPACES } }) => SPACES.S};
   max-height: ${({ theme: { SIZES } }) => SIZES.CARD_WIDTH / 2}px;
   padding: ${({ theme: { SPACES } }) => SPACES.M};
+  z-index: 3;
 
   background-color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.SEARCH_COLOR};
   border-radius: 8px;

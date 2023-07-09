@@ -2,6 +2,7 @@
 /* eslint-disable no-plusplus */
 import axios from 'axios'
 
+
 import { URL_HISTORY, URL_LATEST } from '@/constants/api'
 import { BASE_CURRENCY, QUOTES } from '@/constants/currencies'
 
@@ -20,6 +21,7 @@ const getMonthInfo = async (
   }
   return monthValues
 }
+
 
 const getCurrenciesValues = async () => {
   const response = await axios.get(
