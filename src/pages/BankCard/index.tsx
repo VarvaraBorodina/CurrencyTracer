@@ -1,8 +1,30 @@
 import React from 'react'
 
-class BankCard extends React.PureComponent {
+import ElasticSearch from '@/components/ElasticSearch'
+import { getCurreenciesNames } from '@/utils/currencyParser'
+
+class BankCard extends React.Component {
+  constructor(props: never) {
+    super(props)
+    this.state = { currencyName: '' }
+  }
+
+  handleChangeValue = (newValue: string) => {
+    this.setState({
+      currencyName: newValue,
+    })
+  }
+
   render() {
-    return <div style={{ color: '#fff' }}>BankCard</div>
+    const currenciesNames = getCurreenciesNames()
+    const { handleChangeValue } = this
+    return (
+      <ElasticSearch
+        options={currenciesNames}
+        title="Enter currency"
+        changeValue={handleChangeValue}
+      />
+    )
   }
 }
 

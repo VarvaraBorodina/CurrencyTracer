@@ -9,7 +9,7 @@ const Input = styled.div`
   align-items: center;
   justify-content: space-around;
   width: ${({ theme: { SIZES } }) => SIZES.CARD_WIDTH}px;
-  height: ${({ theme: { SIZES } }) => SIZES.NAVIGATION_HEIGHT * 0.6}px;
+  height: ${({ theme: { SIZES } }) => SIZES.SEARCH_HEIGHT}px;
 
   border: ${({ theme: { SIZES } }) => SIZES.TOGGLE_BORDER_SIZE}px solid
     ${({ theme: { COLOR_THEME } }) => COLOR_THEME.CARD_BORDER_COLOR};
