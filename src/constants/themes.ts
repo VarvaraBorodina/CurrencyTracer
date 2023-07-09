@@ -58,6 +58,8 @@ export const SIZES = {
 
   SEARCH_WIDTH: 450,
   SEARCH_HEIGHT: 65,
+
+  MAP_HEIGHT: 460,
 }
 
 export const FONT_SIZE = {

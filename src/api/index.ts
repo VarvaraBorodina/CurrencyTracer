@@ -2,7 +2,8 @@
 /* eslint-disable no-plusplus */
 import axios from 'axios'
 
-import { URL_HISTORY } from '@/constants/api'
+import { BANKS_URL, URL_HISTORY } from '@/constants/api'
+import BANKS_WITH_CURRENCIES from '@/constants/banksWithCurrencies'
 
 const getMonthInfo = async (
   dates: string[],
@@ -20,4 +21,11 @@ const getMonthInfo = async (
   return monthValues
 }
 
-export { getMonthInfo }
+const getBanksWithCurrency = async (currency: string) => {
+  const banksId = BANKS_WITH_CURRENCIES[currency]
+
+  const response = axios.get(BANKS_URL)
+  console.log((await response).data)
+}
+
+export { getBanksWithCurrency, getMonthInfo }
