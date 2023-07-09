@@ -2,7 +2,8 @@
 /* eslint-disable no-plusplus */
 import axios from 'axios'
 
-import { URL_HISTORY } from '@/constants/api'
+import { URL_HISTORY, URL_LATEST } from '@/constants/api'
+import { BASE_CURRENCY, QUOTES } from '@/constants/currencies'
 
 const getMonthInfo = async (
   dates: string[],
@@ -20,4 +21,25 @@ const getMonthInfo = async (
   return monthValues
 }
 
-export { getMonthInfo }
+const getCurrenciesValues = async () => {
+  const response = await axios.get(
+    `${URL_LATEST}?api-key=${
+      process.env.COIN_API_KEY
+    }&base=${BASE_CURRENCY}&currencies=${QUOTES.map((quote) => quote.code).join(
+      ','
+    )}`
+  )
+  const currenciesValues = (await response.data).data
+  return currenciesValues
+}
+
+const getCurrencyValue = async (code: string, selectedCurrencyCode: string) => {
+  const response = await axios.get(
+    `${URL_LATEST}?apikey=${process.env.COIN_API_KEY}&base_currency=${code}&currencies=${selectedCurrencyCode}`
+  )
+
+  const currencyResponse = (await response.data).data[selectedCurrencyCode]
+  return currencyResponse.value.toFixed(5)
+}
+
+export { getCurrenciesValues, getCurrencyValue, getMonthInfo }
