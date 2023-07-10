@@ -14,6 +14,7 @@ class CustomChartRectangle extends React.Component {
       const secondSeriesPoint = secondSeries?.props?.points[index]
       const yDifference = firstSeriesPoint.y - secondSeriesPoint.y
 
+      console.log(yDifference)
       return (
         <Rectangle
           key={firstSeriesPoint.payload.name}

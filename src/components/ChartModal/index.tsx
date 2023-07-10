@@ -1,8 +1,7 @@
 import React from 'react'
 
-import ChartParamsObserver, {
-  ObserverFunction,
-} from '@/utils/ChartParamsObserver'
+import ChartCustomInputObserver from '@/utils/ChartCustomInputObserver'
+import ChartParamsObserver from '@/utils/ChartParamsObserver'
 
 import { Container, Content } from './styled'
 
@@ -22,6 +21,7 @@ class ChartModal extends React.Component<
 
   componentDidMount(): void {
     ChartParamsObserver.subscribe(this.handleChartCanBeCreated)
+    ChartCustomInputObserver.subscribe(this.handleChartCanBeCreated)
   }
 
   componentWillUnmount(): void {
@@ -30,7 +30,7 @@ class ChartModal extends React.Component<
     }
   }
 
-  handleChartCanBeCreated: ObserverFunction = () => {
+  handleChartCanBeCreated = () => {
     this.setState({ isModalActive: true })
     this.timerId = setTimeout(() => {
       this.setState({ isModalActive: false })

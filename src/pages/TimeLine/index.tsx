@@ -1,17 +1,47 @@
 import React from 'react'
 
-import Chart from '@/components/Chart'
+import ChartCustomDataForm from '@/components/ChartCustomDataForm/input'
 import ChartModal from '@/components/ChartModal'
 import ChartParamsForm from '@/components/ChartParamsForm'
+import ChartWithAPI from '@/components/ChartWithAPI'
+import ChartWithCustomInput from '@/components/ChartWithCustomInput'
 
-import { Container } from './styled'
+import { Button, Container } from './styled'
 
-class TimeLine extends React.PureComponent<Record<string, never>> {
+class TimeLine extends React.PureComponent<never, { isCustomData: boolean }> {
+  constructor(props: never) {
+    super(props)
+    this.state = {
+      isCustomData: false,
+    }
+  }
+
+  handleChangeDataInput = () => {
+    this.setState((prevState) => {
+      return {
+        isCustomData: !prevState.isCustomData,
+      }
+    })
+  }
+
   render() {
+    const { isCustomData } = this.state
     return (
       <Container>
-        <ChartParamsForm />
-        <Chart />
+        <Button onClick={this.handleChangeDataInput}>
+          {isCustomData ? 'Get real data' : 'Enter custom data'}
+        </Button>
+        {isCustomData ? (
+          <>
+            <ChartCustomDataForm />
+            <ChartWithCustomInput />
+          </>
+        ) : (
+          <>
+            <ChartParamsForm />
+            <ChartWithAPI />
+          </>
+        )}
         <ChartModal />
       </Container>
     )
