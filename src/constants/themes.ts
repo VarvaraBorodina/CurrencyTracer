@@ -38,6 +38,9 @@ export const COLORS = {
   LOGO_BOTTOM: '#AFDD2A',
 
   DOT: '#019841',
+
+  CHART_UP: '#EA3943',
+  CHART_DOWN: '#16C782',
 }
 
 export const SIZES = {

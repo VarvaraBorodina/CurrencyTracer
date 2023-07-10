@@ -2,9 +2,10 @@ import styled from 'styled-components'
 
 const Chart = styled.div`
   position: relative;
+  font-size: 12px;
   @media (max-width: 1024px) {
-    height: 100vh;
-    width: 100vw;
+    width: 90%;
+    height: 70%;
   }
 `
 
