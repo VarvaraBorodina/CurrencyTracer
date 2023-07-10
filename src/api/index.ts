@@ -2,8 +2,9 @@
 /* eslint-disable no-plusplus */
 import axios from 'axios'
 
-
-import { URL_HISTORY, URL_LATEST } from '@/constants/api'
+import { Coordinate } from '@/components/Map'
+import { BANKS_URL, URL_HISTORY, URL_LATEST } from '@/constants/api'
+import BANKS_WITH_CURRENCIES from '@/constants/banksWithCurrencies'
 import { BASE_CURRENCY, QUOTES } from '@/constants/currencies'
 
 const getMonthInfo = async (
@@ -22,7 +23,6 @@ const getMonthInfo = async (
   return monthValues
 }
 
-
 const getCurrenciesValues = async () => {
   const response = await axios.get(
     `${URL_LATEST}?api-key=${
@@ -35,6 +35,33 @@ const getCurrenciesValues = async () => {
   return currenciesValues
 }
 
+const getBanksWithCurrency = async (currency: string, coords: Coordinate) => {
+  const { latitude: userLatitude, longitude: userLongitude } = coords
+
+  const response = await axios(BANKS_URL, {
+    headers: {
+      Authorization: process.env.LOCATION_API_KEY,
+    },
+    params: {
+      query: 'bank',
+      ll: `${userLatitude},${userLongitude}`,
+      open_now: 'true',
+      sort: 'DISTANCE',
+    },
+  })
+  const allBanks = (await response).data.results
+  const banksWithCurrency: Coordinate[] = []
+  const banksWithCurrencyIds = BANKS_WITH_CURRENCIES[currency]
+
+  allBanks.forEach(({ geocodes, fsq_id }) => {
+    const { longitude, latitude } = geocodes.main
+    if (banksWithCurrencyIds.includes(fsq_id)) {
+      banksWithCurrency.push({ longitude, latitude })
+    }
+  })
+  return banksWithCurrency
+}
+
 const getCurrencyValue = async (code: string, selectedCurrencyCode: string) => {
   const response = await axios.get(
     `${URL_LATEST}?apikey=${process.env.COIN_API_KEY}&base_currency=${code}&currencies=${selectedCurrencyCode}`
@@ -44,4 +71,9 @@ const getCurrencyValue = async (code: string, selectedCurrencyCode: string) => {
   return currencyResponse.value.toFixed(5)
 }
 
-export { getCurrenciesValues, getCurrencyValue, getMonthInfo }
+export {
+  getBanksWithCurrency,
+  getCurrenciesValues,
+  getCurrencyValue,
+  getMonthInfo,
+}

@@ -1,42 +1,61 @@
-import L from 'leaflet'
+import L, { Marker } from 'leaflet'
 import React from 'react'
 
 import { Container, MapBlock } from './styled'
 
-type Coordinate = {
+export type Coordinate = {
   latitude: number
   longitude: number
 }
 type MapType = {
   banksCoordinates: Coordinate[]
+  userCoordinate: Coordinate
 }
 
 class Map extends React.Component<MapType> {
-  map: any
+  protected map: any
+
+  protected mapMarkers: Marker[]
 
   constructor(props: any) {
     super(props)
     this.map = null
+    this.mapMarkers = []
   }
 
-  componentDidMount(): void {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const { latitude, longitude } = position.coords
-      this.map = L.map('map').setView([Number(latitude), Number(longitude)], 15)
+  componentDidUpdate(): void {
+    const {
+      userCoordinate: { latitude, longitude },
+    } = this.props
+    if (!this.map) {
+      this.map = L.map('map').setView([Number(latitude), Number(longitude)], 13)
+    }
 
-      L.marker([Number(latitude), Number(longitude)]).addTo(this.map)
+    L.marker([Number(latitude), Number(longitude)]).addTo(this.map)
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 30,
+    }).addTo(this.map)
+  }
 
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 30,
+  updateMap() {
+    const { banksCoordinates } = this.props
+    this.mapMarkers.forEach((marker) => {
+      this.map.removeLayer(marker)
+    })
+    banksCoordinates.forEach(({ latitude, longitude }) => {
+      const myIcon = L.icon({
+        iconUrl: '/icons/location.svg',
+        iconSize: [38, 95],
+      })
+      const marker = L.marker([Number(latitude), Number(longitude)], {
+        icon: myIcon,
       }).addTo(this.map)
+      this.mapMarkers.push(marker)
     })
   }
 
   render() {
-    const { banksCoordinates } = this.props
-    banksCoordinates.forEach(({ latitude, longitude }) => {
-      L.marker([Number(latitude), Number(longitude)]).addTo(this.map)
-    })
+    this.updateMap()
     return (
       <Container>
         <MapBlock id="map" />

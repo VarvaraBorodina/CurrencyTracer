@@ -30,7 +30,7 @@ const Input = styled.input`
   color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.LIGHTER_TEXT_COLOR};
   border: none;
   font-family: PoppinsLight;
-  font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.L};
+  font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.S};
   font-weight: ${({ theme: { FONT_WEIGHT } }) => FONT_WEIGHT.S};
   &:focus {
     outline: none;
