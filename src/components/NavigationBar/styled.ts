@@ -6,6 +6,12 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: ${({ theme: { SIZES } }) => SIZES.NAVIGATION_HEIGHT}px;
+  @media (max-width: 1024px) {
+    margin: 0 auto;
+    width: 90wv;
+    padding-left: ${({ theme: { SPACES } }) => SPACES.S}px;
+    padding-right: ${({ theme: { SPACES } }) => SPACES.S}px;
+  }
 `
 
 const Navigator = styled.div`
@@ -14,6 +20,11 @@ const Navigator = styled.div`
   width: ${({ theme: { SIZES } }) => SIZES.NAVIGATOR_WIDTH}px;
   margin-left: ${({ theme: { SPACES } }) => SPACES.XL}px;
   margin-right: ${({ theme: { SPACES } }) => SPACES.XL}px;
+  @media (max-width: 1024px) {
+    width: ${({ theme: { SIZES } }) => SIZES.NAVIGATOR_WIDTH * 0.4}px;
+    margin-left: ${({ theme: { SPACES } }) => SPACES.S}px;
+    margin-right: ${({ theme: { SPACES } }) => SPACES.S}px;
+  }
 `
 
 const Route = styled(Link)`
@@ -25,6 +36,9 @@ const Route = styled(Link)`
   transition: all 0.3s ease-out;
   &:hover {
     color: ${({ theme: { COLORS } }) => COLORS.LOGO_TOP};
+  }
+  @media (max-width: 1024px) {
+    font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.XS}px;
   }
 `
 

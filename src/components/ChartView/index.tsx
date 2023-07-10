@@ -3,6 +3,8 @@ import React, { createRef, RefObject } from 'react'
 
 import { COLORS } from '@/constants/themes'
 
+import Chart from './styled'
+
 type ChartViewType = {
   values: number[]
   time: string[]
@@ -49,7 +51,11 @@ class ChartView extends React.PureComponent<ChartViewType> {
   }
 
   render() {
-    return <canvas id="myChart" ref={this.chartRef} />
+    return (
+      <Chart>
+        <canvas id="myChart" ref={this.chartRef} />
+      </Chart>
+    )
   }
 }
 

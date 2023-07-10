@@ -11,6 +11,9 @@ const Container = styled.div`
   left: 0;
   top: 0;
   cursor: pointer;
+  @media (max-width: 1024px) {
+    height: 100%;
+  }
 `
 
 const Content = styled.div`

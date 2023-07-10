@@ -6,7 +6,11 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: ${({ theme: { SPACES } }) => SPACES.L};
+  margin-top: ${({ theme: { SPACES } }) => SPACES.L};
+  margin-bottom: ${({ theme: { SPACES } }) => SPACES.L};
+  @media (max-width: 1024px) {
+    width: 90wv;
+  }
 `
 
 const Text = styled.h3`
@@ -15,6 +19,9 @@ const Text = styled.h3`
   font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.L};
   font-weight: ${({ theme: { FONT_WEIGHT } }) => FONT_WEIGHT.S};
   color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.NAVIGATION_COLOR};
+  @media (max-width: 1024px) {
+    font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.S};
+  }
 `
 
 const rotate = keyframes`

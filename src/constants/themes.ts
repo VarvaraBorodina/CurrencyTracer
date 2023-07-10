@@ -64,10 +64,12 @@ export const SIZES = {
 }
 
 export const FONT_SIZE = {
+  XS: 12,
   S: 20,
   M: 24,
   L: 28,
-  XL: 76,
+  XL: 30,
+  XXL: 76,
 }
 
 export const SPACES = {

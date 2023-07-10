@@ -15,7 +15,7 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <>
       <CurrencySection
         title={`Quotes (against ${
           QUOTES.find((quote) => quote.code === BASE_CURRENCY)?.name
@@ -27,7 +27,7 @@ const Home = () => {
           <CurrencyModal code={activeCurrencyCode} />
         </Modal>
       )}
-    </div>
+    </>
   )
 }
 

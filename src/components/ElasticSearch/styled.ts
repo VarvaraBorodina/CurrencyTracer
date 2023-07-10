@@ -4,6 +4,9 @@ const Container = styled.div`
   position: relative;
   width: ${({ theme: { SIZES } }) => SIZES.FOOTER_WIDTH}px;
   margin: 0 auto;
+  @media (max-width: 1024px) {
+    width: 95vw;
+  }
 `
 
 const SearchLine = styled.div`
@@ -16,6 +19,9 @@ const SearchLine = styled.div`
   padding: ${({ theme: { SPACES } }) => SPACES.M};
   background-color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.SEARCH_COLOR};
   border-radius: 8px;
+  @media (max-width: 1024px) {
+    width: 90vw;
+  }
 `
 
 const Input = styled.input`
@@ -28,6 +34,10 @@ const Input = styled.input`
   font-weight: ${({ theme: { FONT_WEIGHT } }) => FONT_WEIGHT.S};
   &:focus {
     outline: none;
+  }
+  @media (max-width: 1024px) {
+    width: 70vw;
+    font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.S};
   }
 `
 
@@ -68,6 +78,10 @@ const OptionContainer = styled.div`
   &::-webkit-scrollbar-thumb:hover {
     background: ${({ theme: { COLOR_THEME } }) =>
       COLOR_THEME.LIGHTER_TEXT_COLOR};
+  }
+  @media (max-width: 1024px) {
+    left: 2vw;
+    width: 90vw;
   }
 `
 

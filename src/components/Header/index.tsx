@@ -4,7 +4,13 @@ import { timestampToHoursMinutes } from '@/utils/formatDate'
 
 import Logo from '../Logo'
 import UpdateTime from '../UpdateTime'
-import { Container, SubTitle, Title, TitleContainer } from './styled'
+import {
+  Container,
+  LogoContainer,
+  SubTitle,
+  Title,
+  TitleContainer,
+} from './styled'
 
 const Header = () => {
   const lastUpdateTime: number = useTypedSelector((state) => {
@@ -20,7 +26,9 @@ const Header = () => {
             Quotes for the dollar and other international currencies.
           </SubTitle>
         </TitleContainer>
-        <Logo width={300} height={312} />
+        <LogoContainer>
+          <Logo width={300} height={312} />
+        </LogoContainer>
       </Container>
       <UpdateTime time={timestampToHoursMinutes(lastUpdateTime)} />
     </>

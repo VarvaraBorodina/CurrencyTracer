@@ -15,6 +15,10 @@ const Input = styled.div`
     ${({ theme: { COLOR_THEME } }) => COLOR_THEME.CARD_BORDER_COLOR};
   border-radius: 8px;
   cursor: pointer;
+  @media (max-width: 1024px) {
+    width: 90vw;
+    margin-top: ${({ theme: { SPACES } }) => SPACES.S};
+  }
 `
 
 const Option = styled.option`
@@ -41,11 +45,20 @@ const OptionContainer = styled.div`
     ${({ theme: { COLOR_THEME } }) => COLOR_THEME.CARD_BORDER_COLOR};
   border-radius: 8px;
   overflow-y: auto;
+  z-index: 1;
+
+  @media (max-width: 1024px) {
+    width: 90vw;
+    margin-top: ${({ theme: { SPACES } }) => SPACES.XS};
+  }
 `
 const Title = styled.div`
   font-family: PoppinsLight;
   font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.L};
   font-weight: ${({ theme: { FONT_WEIGHT } }) => FONT_WEIGHT.S};
   color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.TEXT_COLOR};
+  @media (max-width: 1024px) {
+    font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.M};
+  }
 `
 export { Container, Input, Option, OptionContainer, Title }
