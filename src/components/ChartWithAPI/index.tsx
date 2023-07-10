@@ -19,7 +19,10 @@ type ChartType = {
   isError: boolean
 }
 
-class Chart extends React.PureComponent<Record<string, never>, ChartType> {
+class ChartWithAPI extends React.PureComponent<
+  Record<string, never>,
+  ChartType
+> {
   constructor(props: any) {
     super(props)
     this.state = {
@@ -73,4 +76,4 @@ class Chart extends React.PureComponent<Record<string, never>, ChartType> {
   }
 }
 
-export default Chart
+export default ChartWithAPI

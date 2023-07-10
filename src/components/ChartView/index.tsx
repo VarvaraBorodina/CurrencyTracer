@@ -12,67 +12,40 @@ import {
 import CustomChartRectangle from '../CustomChartRectangle'
 import Chart from './styled'
 
-type ChartViewType = {
+export type ChartViewType = {
   values: number[]
   time: string[]
 }
 
-type Column = {
-  name: string
-  previousValue: number
-  currentValue: number
-}
-
-type ChartViewState = {
-  chartData: Column[]
-  minDataValue: number
-  maxDataValue: number
-}
-
-class ChartView extends React.Component<ChartViewType, ChartViewState> {
-  constructor(props: ChartViewType) {
-    super(props)
-    this.state = {
-      chartData: [],
-      minDataValue: Number.MAX_SAFE_INTEGER,
-      maxDataValue: 0,
-    }
-  }
-
-  componentDidMount(): void {
+class ChartView extends React.PureComponent<ChartViewType> {
+  render() {
     const { values, time } = this.props
-    const { minDataValue, maxDataValue } = this.state
-    const newChartData = []
+    let minDataValue = Number.MAX_SAFE_INTEGER
+    let maxDataValue = 0
+    const chartData = []
+
     for (let i = 1; i < values.length; i += 1) {
       if (values[i - 1] > maxDataValue) {
-        this.setState({ maxDataValue: values[i - 1] })
+        maxDataValue = values[i - 1]
       }
       if (values[i - 1] < minDataValue) {
-        this.setState({ minDataValue: values[i - 1] })
+        minDataValue = values[i - 1]
       }
 
       if (values[i - 1] === values[i]) {
         values[i - 1] += values[i - 1] * 0.0001
       }
-      newChartData.push({
+      chartData.push({
         name: time[i],
         previousValue: values[i - 1],
         currentValue: values[i],
       })
     }
-    this.setState({ chartData: newChartData })
-  }
 
-  componentDidUpdate(): void {}
-
-  componentWillUnmount(): void {}
-
-  render() {
-    const { chartData, minDataValue, maxDataValue } = this.state
     if (maxDataValue > 0) {
       return (
         <Chart>
-          <ResponsiveContainer width="100%" height="60%">
+          <ResponsiveContainer width="99%" height={500}>
             <LineChart data={chartData}>
               <CartesianGrid strokeDasharray="1 1" />
               <XAxis dataKey="name" hide />
