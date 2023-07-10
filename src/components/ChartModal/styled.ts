@@ -28,6 +28,9 @@ const Content = styled.div`
   color: #fff;
   text-align: center;
   cursor: auto;
+  @media (max-width: 1024px) {
+    width: 95vw;
+  }
 `
 
 export { Container, Content }

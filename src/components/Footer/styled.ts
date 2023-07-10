@@ -3,12 +3,19 @@ import styled from 'styled-components'
 const Container = styled.div`
   margin: 0 auto;
   width: ${({ theme: { SIZES } }) => SIZES.FOOTER_WIDTH}px;
-  aligt-item: center;
   background-color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.MAIN_COLOR};
+  @media (max-width: 1024px) {
+    width: 90vw;
+    flex-direction: column;
+  }
 `
 
 const TitleContainer = styled.div`
   display: flex;
+  @media (max-width: 1024px) {
+    justify-content: center;
+    width: 90vw;
+  }
 `
 
 const Title = styled.h1`
@@ -26,6 +33,11 @@ const Title = styled.h1`
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  @media (max-width: 1024px) {
+    font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.S}px;
+    margin-left: ${({ theme: { SPACES } }) => SPACES.XS}px;
+    margin-bottom: ${({ theme: { SPACES } }) => SPACES.S}px;
+  }
 `
 const Info = styled.div``
 
@@ -36,10 +48,16 @@ const Description = styled.p`
   font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.M}px;
   font-weight: ${({ theme: { FONT_WEIGHT } }) => FONT_WEIGHT.S};
   color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.NAVIGATION_COLOR};
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `
 
 const MenuOption = styled.div`
   margin-left: ${({ theme: { SPACES } }) => SPACES.S * 10}px;
+  @media (max-width: 1024px) {
+    margin-left: ${({ theme: { SPACES } }) => SPACES.M}px;
+  }
 `
 
 const OptionTitle = styled.h6`
@@ -49,6 +67,10 @@ const OptionTitle = styled.h6`
   font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.L}px;
   font-weight: ${({ theme: { FONT_WEIGHT } }) => FONT_WEIGHT.M};
   line-height: ${({ theme: { LINE_HEIGHT } }) => LINE_HEIGHT.L}px;
+  @media (max-width: 1024px) {
+    margin-bottom: ${({ theme: { SPACES } }) => SPACES.S}px;
+    font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.S}px;
+  }
 `
 
 const SubOption = styled.p`
@@ -58,10 +80,16 @@ const SubOption = styled.p`
   font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.M}px;
   font-weight: ${({ theme: { FONT_WEIGHT } }) => FONT_WEIGHT.M};
   line-height: ${({ theme: { LINE_HEIGHT } }) => LINE_HEIGHT.S}px;
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `
 
 const Menu = styled.div`
   display: flex;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
 `
 const Policy = styled.p`
   margin-top: ${({ theme: { SPACES } }) => SPACES.S * 5}px;
@@ -72,11 +100,19 @@ const Policy = styled.p`
   font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.M}px;
   font-weight: ${({ theme: { FONT_WEIGHT } }) => FONT_WEIGHT.M};
   line-height: ${({ theme: { LINE_HEIGHT } }) => LINE_HEIGHT.S}px;
+  @media (max-width: 1024px) {
+    font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.S}px;
+  }
 `
 
 const Content = styled.div`
   display: flex;
   justify-content: space-between;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    justify-content: center;
+    width: 90vw;
+  }
 `
 
 export {
