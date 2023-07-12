@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = new Date().getTime()
+const initialState = 0
 
 const timeSlice = createSlice({
   name: 'time',
   initialState,
   reducers: {
-    setUpdateTime() {
-      return new Date().getTime()
+    setUpdateTime(state, action) {
+      return action.payload
     },
   },
 })
