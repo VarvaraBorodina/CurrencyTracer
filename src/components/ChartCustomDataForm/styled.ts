@@ -11,6 +11,7 @@ const Container = styled.div`
   border-radius: 12px;
   @media (max-width: 1024px) {
     width: 100vw;
+    margin: 0 auto;
   }
 `
 
@@ -66,7 +67,9 @@ const Button = styled.button`
   font-weight: ${({ theme: { FONT_WEIGHT } }) => FONT_WEIGHT.S};
   cursor: pointer;
   @media (max-width: 1024px) {
-    width: 20vw;
+    margin-top: ${({ theme: { SPACES } }) => SPACES.S};
+    margin-left: 0;
+    width: 60vw;
     font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.XS};
   }
 `

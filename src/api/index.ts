@@ -6,6 +6,7 @@ import { Coordinate } from '@/components/Map'
 import { BANKS_URL, URL_HISTORY, URL_LATEST } from '@/constants/api'
 import BANKS_WITH_CURRENCIES from '@/constants/banksWithCurrencies'
 import { BASE_CURRENCY, QUOTES } from '@/constants/currencies'
+import LOCATION from '@/constants/location'
 
 const getMonthInfo = async (
   dates: string[],
@@ -25,7 +26,7 @@ const getMonthInfo = async (
 
 const getCurrenciesValues = async () => {
   const response = await axios.get(
-    `${URL_LATEST}?api-key=${
+    `${URL_LATEST}?apikey=${
       process.env.COIN_API_KEY
     }&base=${BASE_CURRENCY}&currencies=${QUOTES.map((quote) => quote.code).join(
       ','
@@ -35,18 +36,25 @@ const getCurrenciesValues = async () => {
   return currenciesValues
 }
 
-const getBanksWithCurrency = async (currency: string, coords: Coordinate) => {
-  const { latitude: userLatitude, longitude: userLongitude } = coords
+const getCurrencyValue = async (code: string, selectedCurrencyCode: string) => {
+  const response = await axios.get(
+    `${URL_LATEST}?apikey=${process.env.COIN_API_KEY}&base_currency=${selectedCurrencyCode}&currencies=${code}`
+  )
 
+  const currencyResponse = (await response.data).data[code]
+  return currencyResponse.value.toFixed(5)
+}
+
+const getBanksWithCurrency = async (currency: string) => {
   const response = await axios(BANKS_URL, {
     headers: {
       Authorization: process.env.LOCATION_API_KEY,
     },
     params: {
       query: 'bank',
-      ll: `${userLatitude},${userLongitude}`,
-      open_now: 'true',
+      ll: `${LOCATION.latitude},${LOCATION.longitude}`,
       sort: 'DISTANCE',
+      radius: 2000,
     },
   })
   const allBanks = (await response).data.results
@@ -60,15 +68,6 @@ const getBanksWithCurrency = async (currency: string, coords: Coordinate) => {
     }
   })
   return banksWithCurrency
-}
-
-const getCurrencyValue = async (code: string, selectedCurrencyCode: string) => {
-  const response = await axios.get(
-    `${URL_LATEST}?apikey=${process.env.COIN_API_KEY}&base_currency=${code}&currencies=${selectedCurrencyCode}`
-  )
-
-  const currencyResponse = (await response.data).data[selectedCurrencyCode]
-  return currencyResponse.value.toFixed(5)
 }
 
 export {

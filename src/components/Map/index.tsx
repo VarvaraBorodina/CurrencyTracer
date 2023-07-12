@@ -1,6 +1,8 @@
 import L, { Marker } from 'leaflet'
 import React from 'react'
 
+import LOCATION from '@/constants/location'
+
 import { Container, MapBlock } from './styled'
 
 export type Coordinate = {
@@ -9,7 +11,6 @@ export type Coordinate = {
 }
 type MapType = {
   banksCoordinates: Coordinate[]
-  userCoordinate: Coordinate
 }
 
 class Map extends React.Component<MapType> {
@@ -19,19 +20,12 @@ class Map extends React.Component<MapType> {
 
   constructor(props: any) {
     super(props)
-    this.map = null
     this.mapMarkers = []
   }
 
-  componentDidUpdate(): void {
-    const {
-      userCoordinate: { latitude, longitude },
-    } = this.props
-    if (!this.map) {
-      this.map = L.map('map').setView([Number(latitude), Number(longitude)], 13)
-    }
-
-    L.marker([Number(latitude), Number(longitude)]).addTo(this.map)
+  componentDidMount(): void {
+    this.map = L.map('map').setView([LOCATION.latitude, LOCATION.longitude], 15)
+    L.marker([LOCATION.latitude, LOCATION.longitude]).addTo(this.map)
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 30,
     }).addTo(this.map)

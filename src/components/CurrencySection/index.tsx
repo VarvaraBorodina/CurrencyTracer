@@ -5,9 +5,8 @@ import { Currency } from '@/components/CurrencyCard/types'
 import { CACHE_EXPIRES_TIME } from '@/constants/api'
 import useTypedDispatch from '@/hooks/useTypedDispatch'
 import useTypedSelector from '@/hooks/useTypedSelector'
-import { setQuotes } from '@/store/slices/quotesSlice'
+import { quotesSelector, setQuotes } from '@/store/slices/quotesSlice'
 import { setUpdateTime } from '@/store/slices/timeSlice'
-import { parseCurrency } from '@/utils/currencyParser'
 
 import CurrencyCard from '../CurrencyCard'
 import Loader from '../Loader'
@@ -32,9 +31,7 @@ const CurrencySection = ({
     return state.time
   })
 
-  const quotesFromStorage: Currency[] = useTypedSelector((state) =>
-    parseCurrency(state.quotes)
-  )
+  const quotesFromStorage: Currency[] = useTypedSelector(quotesSelector)
 
   const dispatch = useTypedDispatch()
 
@@ -55,7 +52,7 @@ const CurrencySection = ({
       !quotesFromStorage.length
     ) {
       fetchQuotes()
-      dispatch(setUpdateTime())
+      dispatch(setUpdateTime(currentTime))
     } else {
       setIsLoading(false)
     }

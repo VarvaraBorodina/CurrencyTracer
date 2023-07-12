@@ -17,9 +17,9 @@ const Home = () => {
   return (
     <>
       <CurrencySection
-        title={`Quotes (against ${
+        title={`Cost of 1 ${
           QUOTES.find((quote) => quote.code === BASE_CURRENCY)?.name
-        })`}
+        }`}
         handleOnCurrencyCardClick={handleOnCurrencyCardClick}
       />
       {isModalActive && (
