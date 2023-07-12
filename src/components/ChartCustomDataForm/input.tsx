@@ -47,7 +47,7 @@ class ChartCustomDataForm extends React.Component<
   render() {
     const { inputValue, values } = this.state
     return (
-      <Container>
+      <Container data-cy="custom-data-form">
         {values.length < this.time.length && (
           <>
             <Title>Enter currency value for current data:</Title>
@@ -56,8 +56,13 @@ class ChartCustomDataForm extends React.Component<
               value={inputValue}
               onChange={this.handleChangeValue}
               type="number"
+              data-cy="custom-data-input"
             />
-            <Button type="button" onClick={this.handleInputButton}>
+            <Button
+              type="button"
+              onClick={this.handleInputButton}
+              data-cy="custom-data-button"
+            >
               Add data
             </Button>
           </>

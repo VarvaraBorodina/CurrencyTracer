@@ -28,7 +28,10 @@ class TimeLine extends React.PureComponent<never, { isCustomData: boolean }> {
     const { isCustomData } = this.state
     return (
       <Container>
-        <Button onClick={this.handleChangeDataInput}>
+        <Button
+          onClick={this.handleChangeDataInput}
+          data-cy="input-type-button"
+        >
           {isCustomData ? 'Get real data' : 'Enter custom data'}
         </Button>
         {isCustomData ? (

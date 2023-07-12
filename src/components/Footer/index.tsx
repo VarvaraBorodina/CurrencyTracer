@@ -30,7 +30,7 @@ const options = [
 
 const Footer = () => {
   return (
-    <Container>
+    <Container data-cy="footer">
       <Content>
         <Info>
           <TitleContainer>

@@ -19,7 +19,7 @@ const contacts = [
 
 const ContactsInfo = () => {
   return (
-    <Container>
+    <Container data-cy="contacts">
       <Title>Contacts</Title>
       <ul>
         {contacts.map((contact) => (

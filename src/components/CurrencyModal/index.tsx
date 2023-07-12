@@ -57,13 +57,16 @@ const CurrencyModal = ({ code }: CurrencyModalType) => {
                 $selected={selectedCurrencyCode === quote.code}
                 key={quote.code}
                 onClick={() => handleOnCurrencyClick(quote.code)}
+                data-cy={`modal-option-${quote.code}`}
               >
                 {quote.name}
               </Option>
             )
         )}
       </OptionContainer>
-      <Text>{isLoading ? 'Loading...' : modalMessage}</Text>
+      <Text data-cy="modal-message">
+        {isLoading ? 'Loading...' : modalMessage}
+      </Text>
     </>
   )
 }

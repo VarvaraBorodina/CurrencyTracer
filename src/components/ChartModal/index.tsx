@@ -42,7 +42,7 @@ class ChartModal extends React.Component<
     return (
       isModalActive && (
         <Container>
-          <Content>
+          <Content data-cy="chart-modal">
             <h1>Chart can be created!</h1>
           </Content>
         </Container>

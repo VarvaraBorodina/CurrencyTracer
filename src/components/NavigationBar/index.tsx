@@ -27,11 +27,15 @@ export const routes = [
 
 const NavigationBar = () => {
   return (
-    <Container>
+    <Container data-cy="navigation">
       <Logo width={40} height={43} />
       <Navigator>
         {routes.map(({ name, path }) => (
-          <Route key={path} to={path}>
+          <Route
+            key={path}
+            to={path}
+            data-cy={`${path.slice(1, path.length)}path`}
+          >
             {name}
           </Route>
         ))}

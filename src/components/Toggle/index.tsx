@@ -15,7 +15,7 @@ const Toggle = () => {
       onClick={() => dispatch(toggleTheme())}
       $isLeft={theme === 'LIGHT'}
     >
-      <Round>0</Round>
+      <Round data-cy="toggle">0</Round>
     </Ellipse>
   )
 }

@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <>
       <NavigationBar />
-      <Container>
+      <Container data-cy="header">
         <TitleContainer>
           <Title>Modsen Currency Tracker</Title>
           <SubTitle>

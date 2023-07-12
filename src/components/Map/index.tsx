@@ -51,7 +51,7 @@ class Map extends React.Component<MapType> {
   render() {
     this.updateMap()
     return (
-      <Container>
+      <Container data-cy="map">
         <MapBlock id="map" />
       </Container>
     )

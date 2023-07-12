@@ -29,14 +29,18 @@ class Dropdown extends React.Component<DropdownType, { isOpen: boolean }> {
 
     return (
       <Container>
-        <Input onClick={() => this.setState({ isOpen: true })}>
+        <Input
+          onClick={() => this.setState({ isOpen: true })}
+          data-cy={`dropdown-input-${id}`}
+        >
           <Title>{title}</Title>
           <DropdownArrow />
         </Input>
         {isOpen && (
-          <OptionContainer>
-            {options.map((option: string) => (
+          <OptionContainer data-cy={`dropdown-block-${id}`}>
+            {options.map((option: string, index) => (
               <Option
+                data-cy={`dropdown-block-${id}-${index}`}
                 key={option}
                 onClick={() => this.handleOnOptionClick(option, id)}
               >
