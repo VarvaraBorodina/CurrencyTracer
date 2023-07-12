@@ -7,7 +7,7 @@ type UpdateTimeType = {
 }
 const UpdateTime = ({ time }: UpdateTimeType) => {
   return (
-    <Container>
+    <Container data-cy="update-time">
       <Dot />
       <Text>Last updated at {time}</Text>
     </Container>

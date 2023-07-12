@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "cypress": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,8 @@
     "@types/recharts": "^1.8.24",
     "axios": "^1.4.0",
     "chart.js": "^4.3.0",
+    "cypress": "^12.17.1",
+    "eslint-plugin-cypress": "^2.13.3",
     "file-loader": "^6.2.0",
     "leaflet": "^1.9.4",
     "react": "^18.2.0",

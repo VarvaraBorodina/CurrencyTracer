@@ -12,7 +12,7 @@ const CurrencyCard = ({
 }: CurrencyCardType) => {
   const { svg, code, name, value } = currency
   return (
-    <Container onClick={() => handleOnClick(code, name)}>
+    <Container onClick={() => handleOnClick(code, name)} data-cy={code}>
       {svg}
       <Info>
         <Title>{name}</Title>

@@ -1,0 +1,43 @@
+{
+  "data": {
+    "ARS": {
+      "code": "ARS",
+      "value": 2
+    },
+    "AUD": {
+      "code": "AUD",
+      "value": 4
+    },
+    "BTC": {
+      "code": "BTC",
+      "value": 6
+    },
+    "CAD": {
+      "code": "CAD",
+      "value": 8
+    },
+    "CNY": {
+      "code": "CNY",
+      "value": 10
+    },
+    "EUR": {
+      "code": "EUR",
+      "value": 12
+    },
+    "GBP": {
+      "code": "GBP",
+      "value": 14
+    },
+    "JPY": {
+      "code": "JPY",
+      "value": 16
+    },
+    "USD": {
+      "code": "USD",
+      "value": 1
+    }
+  },
+  "meta": {
+    "last_updated_at": "2023-07-05T23:59:59Z"
+  }
+}

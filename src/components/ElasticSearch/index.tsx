@@ -67,20 +67,25 @@ class ElasticSearch extends React.Component<
       this
 
     return (
-      <Container>
+      <Container data-cy="search">
         <SearchLine>
           <Input
             value={value}
             onChange={handleChangeInputValue}
             onFocus={handleInputFocus}
             placeholder={title}
+            data-cy="search-input"
           />
           <SearchIcon />
         </SearchLine>
         {showOptions && (
-          <OptionContainer>
-            {filteredOptions.map((option: string) => (
-              <Option key={option} onClick={() => handleOnOptionClick(option)}>
+          <OptionContainer data-cy="search-block">
+            {filteredOptions.map((option: string, index) => (
+              <Option
+                key={option}
+                onClick={() => handleOnOptionClick(option)}
+                data-cy={`search-block-${index}`}
+              >
                 {option}
               </Option>
             ))}
