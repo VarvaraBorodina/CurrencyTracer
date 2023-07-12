@@ -30,7 +30,6 @@ class BankCard extends React.Component<never, BankCardType> {
     const currenciesNames = getCurreenciesNames()
     const { handleChangeValue } = this
     const { banksWithCurency } = this.state
-    console.log(LOCATION, banksWithCurency)
     return (
       <>
         <ElasticSearch
