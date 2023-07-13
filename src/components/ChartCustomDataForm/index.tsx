@@ -11,7 +11,7 @@ class ChartCustomDataForm extends React.Component<
 > {
   protected time: string[]
 
-  constructor(props: never) {
+  constructor(props: any) {
     super(props)
     this.state = {
       values: [],
@@ -28,7 +28,7 @@ class ChartCustomDataForm extends React.Component<
     const { inputValue, values } = this.state
     if (
       values.length < this.time.length &&
-      !isNaN(inputValue) &&
+      !Number.isNaN(Number(inputValue)) &&
       inputValue !== ''
     ) {
       this.setState((prevState) => {
@@ -57,6 +57,8 @@ class ChartCustomDataForm extends React.Component<
               onChange={this.handleChangeValue}
               type="number"
               data-cy="custom-data-input"
+              data-testid="custom-data-input"
+              placeholder="Enter your data"
             />
             <Button
               type="button"

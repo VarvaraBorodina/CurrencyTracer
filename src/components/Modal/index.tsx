@@ -8,7 +8,11 @@ type ModalTypes = {
 }
 const Modal = ({ setIsActive, children }: ModalTypes) => {
   return (
-    <Container onClick={() => setIsActive(false)} data-cy="modal-empty-space">
+    <Container
+      onClick={() => setIsActive(false)}
+      data-cy="modal-empty-space"
+      data-testid="modal"
+    >
       <Content
         onClick={(event: React.MouseEvent<HTMLElement>) =>
           event.stopPropagation()

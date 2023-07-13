@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import CurrencyModal from '@/components/CurrencyModal'
 import CurrencySection from '@/components/CurrencySection'
-import Modal from '@/components/Modal/indes'
+import Modal from '@/components/Modal'
 import { BASE_CURRENCY, QUOTES } from '@/constants/currencies'
 
 const Home = () => {

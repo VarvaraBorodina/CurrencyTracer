@@ -3,14 +3,14 @@ import { Rectangle } from 'recharts'
 
 import { COLORS } from '@/constants/themes'
 
-class CustomChartRectangle extends React.Component {
-  render() {
-    const { formattedGraphicalItems } = this.props
+const CustomChartRectangle = (props: any) => {
+  const { formattedGraphicalItems } = props
 
-    const firstSeries = formattedGraphicalItems[0]
-    const secondSeries = formattedGraphicalItems[1]
+  const firstSeries = formattedGraphicalItems[0]
+  const secondSeries = formattedGraphicalItems[1]
 
-    return firstSeries?.props?.points.map((firstSeriesPoint, index: number) => {
+  return firstSeries?.props?.points.map(
+    (firstSeriesPoint: any, index: number) => {
       const secondSeriesPoint = secondSeries?.props?.points[index]
       const yDifference = firstSeriesPoint.y - secondSeriesPoint.y
 
@@ -24,8 +24,8 @@ class CustomChartRectangle extends React.Component {
           fill={yDifference > 0 ? COLORS.CHART_DOWN : COLORS.CHART_UP}
         />
       )
-    })
-  }
+    }
+  )
 }
 
 export default CustomChartRectangle

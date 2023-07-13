@@ -32,13 +32,12 @@ const CurrencySection = ({
   })
 
   const quotesFromStorage: Currency[] = useTypedSelector(quotesSelector)
-
   const dispatch = useTypedDispatch()
 
   const fetchQuotes = useCallback(async () => {
     try {
       const currenciesValues = await getCurrenciesValues()
-      dispatch(setQuotes(currenciesValues))
+      dispatch(setQuotes(JSON.stringify(currenciesValues)))
       setIsLoading(false)
     } catch (error) {
       setIsError(true)

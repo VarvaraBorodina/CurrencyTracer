@@ -22,7 +22,6 @@ class ChartCustomInputObserver {
   }
 
   public notify(params: ChartViewType) {
-    console.log('public notify(params: ChartViewType) {')
     this.observers.forEach((observer: CustomInputObserverFunction) => {
       observer(params)
     })

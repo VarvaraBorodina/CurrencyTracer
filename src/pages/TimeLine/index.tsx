@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ChartCustomDataForm from '@/components/ChartCustomDataForm/input'
+import ChartCustomDataForm from '@/components/ChartCustomDataForm'
 import ChartModal from '@/components/ChartModal'
 import ChartParamsForm from '@/components/ChartParamsForm'
 import ChartWithAPI from '@/components/ChartWithAPI'

@@ -44,7 +44,7 @@ class ChartView extends React.PureComponent<ChartViewType> {
 
     if (maxDataValue > 0) {
       return (
-        <Chart data-cy="chart">
+        <Chart data-cy="chart" data-testid="chart">
           <ResponsiveContainer width="99%" height={500}>
             <LineChart data={chartData}>
               <CartesianGrid strokeDasharray="1 1" />

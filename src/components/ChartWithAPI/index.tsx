@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { getMonthInfo } from '@/api'
 import ChartView from '@/components/ChartView'
 import chartParamsObserver, {
   ChartParams,
@@ -8,7 +9,6 @@ import chartParamsObserver, {
 import { getCurreencyByName } from '@/utils/currencyParser'
 import { getLastMonthDates } from '@/utils/formatDate'
 
-import { getMonthInfo } from '../../api'
 import Loader from '../Loader'
 import Text from './styled'
 
@@ -44,6 +44,7 @@ class ChartWithAPI extends React.PureComponent<
     try {
       if (currency && baseCurrency) {
         this.setState({ isLoading: true })
+
         const lastMonthDates = getLastMonthDates()
         const monthData = await getMonthInfo(
           lastMonthDates,
