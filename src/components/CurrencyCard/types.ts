@@ -1,6 +1,6 @@
 export type Currency = {
   name: string
   value: number
-  svg: JSX.Element
+  svg: JSX.Element | null
   code: string
 }

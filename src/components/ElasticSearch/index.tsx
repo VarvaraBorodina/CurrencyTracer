@@ -75,6 +75,7 @@ class ElasticSearch extends React.Component<
             onFocus={handleInputFocus}
             placeholder={title}
             data-cy="search-input"
+            data-testid="search-input"
           />
           <SearchIcon />
         </SearchLine>

@@ -8,6 +8,14 @@ import BANKS_WITH_CURRENCIES from '@/constants/banksWithCurrencies'
 import { BASE_CURRENCY, QUOTES } from '@/constants/currencies'
 import LOCATION from '@/constants/location'
 
+type Geocodes = {
+  main: Coordinate
+}
+type BankInfo = {
+  geocodes: Geocodes
+  fsq_id: string
+}
+
 const getMonthInfo = async (
   dates: string[],
   baseCurrency: string,
@@ -59,9 +67,10 @@ const getBanksWithCurrency = async (currency: string) => {
   })
   const allBanks = (await response).data.results
   const banksWithCurrency: Coordinate[] = []
-  const banksWithCurrencyIds = BANKS_WITH_CURRENCIES[currency]
+  const banksWithCurrencyIds =
+    BANKS_WITH_CURRENCIES[currency as keyof typeof BANKS_WITH_CURRENCIES]
 
-  allBanks.forEach(({ geocodes, fsq_id }) => {
+  allBanks.forEach(({ fsq_id, geocodes }: BankInfo) => {
     const { longitude, latitude } = geocodes.main
     if (banksWithCurrencyIds.includes(fsq_id)) {
       banksWithCurrency.push({ longitude, latitude })

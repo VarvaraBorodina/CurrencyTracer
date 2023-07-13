@@ -1,15 +1,16 @@
 import { Currency } from '@/components/CurrencyCard/types'
 import { QUOTES, QUOTES_WITH_CHART } from '@/constants/currencies'
 
-const parseCurrency = (currenciesValues): Currency[] => {
+const parseCurrency = (currenciesValues: string): Currency[] => {
   if (!currenciesValues) {
     return []
   }
+  const currenciesValuesObj = JSON.parse(currenciesValues)
   return QUOTES.map(({ name, svg, code }) => {
     return {
       name,
       svg,
-      value: currenciesValues[code].value,
+      value: currenciesValuesObj[code].value,
       code,
     }
   })
@@ -30,7 +31,6 @@ const getCurreenciesWithChartNames = (): string[] => {
   return QUOTES_WITH_CHART.map((quote: string) => {
     const currencyName = getCurreencyByCode(quote)
     return currencyName ? currencyName.name : ''
-    return ''
   })
 }
 

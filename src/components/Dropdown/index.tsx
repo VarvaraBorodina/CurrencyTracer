@@ -32,6 +32,7 @@ class Dropdown extends React.Component<DropdownType, { isOpen: boolean }> {
         <Input
           onClick={() => this.setState({ isOpen: true })}
           data-cy={`dropdown-input-${id}`}
+          data-testid={`dropdown-input-${id}`}
         >
           <Title>{title}</Title>
           <DropdownArrow />

@@ -16,7 +16,7 @@ const CurrencyCard = ({
       {svg}
       <Info>
         <Title>{name}</Title>
-        <Value>{value !== 1 && `${value.toFixed(5)}`}</Value>
+        <Value role="value">{value !== 1 && `${value.toFixed(5)}`}</Value>
       </Info>
     </Container>
   )

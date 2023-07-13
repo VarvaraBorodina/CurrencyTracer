@@ -25,6 +25,7 @@ const ContactsInfo = () => {
         {contacts.map((contact) => (
           <ListItem
             key={contact.name}
+            data-testid={contact.name}
           >{`${contact.name} : ${contact.value}`}</ListItem>
         ))}
       </ul>

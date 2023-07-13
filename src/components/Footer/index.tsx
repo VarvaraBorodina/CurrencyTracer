@@ -37,7 +37,7 @@ const Footer = () => {
             <Logo width={40} height={43} />
             <Title>Modsen Currency Tracker</Title>
           </TitleContainer>
-          <Description>
+          <Description data-testid="description">
             {`Since then, the company has grown organically to. Starsup is the
           world's largest trading platform, with $12 billion worth of currency
           trading and 500,000 tickets sold daily to tens of thousands of traders
