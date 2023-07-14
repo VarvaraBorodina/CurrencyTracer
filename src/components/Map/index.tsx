@@ -37,13 +37,9 @@ class Map extends React.Component<MapType> {
       this.map.removeLayer(marker)
     })
     banksCoordinates.forEach(({ latitude, longitude }) => {
-      const myIcon = L.icon({
-        iconUrl: '/icons/location.svg',
-        iconSize: [38, 95],
-      })
-      const marker = L.marker([Number(latitude), Number(longitude)], {
-        icon: myIcon,
-      }).addTo(this.map)
+      const marker = L.marker([Number(latitude), Number(longitude)]).addTo(
+        this.map
+      )
       this.mapMarkers.push(marker)
     })
   }
