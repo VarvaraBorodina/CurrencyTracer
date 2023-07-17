@@ -5,8 +5,10 @@ import CurrencySection from '@/components/CurrencySection'
 import Modal from '@/components/ui/Modal'
 import { BASE_CURRENCY, QUOTES } from '@/constants/currencies'
 import TEXT from '@/constants/text'
+import { CONFIG } from '@/constants/api'
 
 const Home = () => {
+  console.log(CONFIG)
   const [isModalActive, setIsModalActive] = useState(false)
   const [activeCurrencyCode, setActiveCurrencyCode] = useState('')
 
