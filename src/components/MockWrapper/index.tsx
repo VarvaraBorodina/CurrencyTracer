@@ -1,4 +1,3 @@
-import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 
@@ -7,12 +6,18 @@ import {
   COLORS,
   FONT_SIZE,
   FONT_WEIGHT,
+  FONTS,
   LINE_HEIGHT,
   SIZES,
   SPACES,
+  Z_INDEX,
 } from '@/constants/themes'
 
-function MockWrapper({ children }: any) {
+type MockWrapperType = {
+  children: JSX.Element
+}
+
+function MockWrapper({ children }: MockWrapperType) {
   const theme = {
     COLORS,
     COLOR_THEME: COLOR_THEMES.DARK,
@@ -21,6 +26,8 @@ function MockWrapper({ children }: any) {
     LINE_HEIGHT,
     SIZES,
     SPACES,
+    FONTS,
+    Z_INDEX,
   }
   return (
     <BrowserRouter>

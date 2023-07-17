@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react'
 
+import TEXT from '@/constants/text'
+
 interface Props {
   children: ReactNode
 }
@@ -24,7 +26,7 @@ class ErrorBoundary extends React.Component<Props, State> {
     const { hasError } = this.state
     const { children } = this.props
     if (hasError) {
-      return <h1 data-testid="errorboundary">Something went wrong...</h1>
+      return <h1 data-testid="errorboundary">{TEXT.ERROR}</h1>
     }
 
     return children

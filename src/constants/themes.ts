@@ -41,6 +41,7 @@ export const COLORS = {
 
   CHART_UP: '#EA3943',
   CHART_DOWN: '#16C782',
+  MODAL_BACKGROUND: '#00000070',
 }
 
 export const SIZES = {
@@ -90,4 +91,10 @@ export const LINE_HEIGHT = {
   XL: 76,
 }
 
-export type Theme = 'LIGHT' | 'DARK'
+export const FONTS = {
+  MAIN_LIGHT: 'PoppinsLight',
+  MAIN_SEMI_BOLD: 'PoppinsSemiBold',
+  FOOTER_REGULAR: 'InterRegular',
+}
+
+export const Z_INDEX = {}

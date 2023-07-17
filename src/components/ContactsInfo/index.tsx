@@ -1,32 +1,17 @@
-import React from 'react'
+import TEXT from '@/constants/text'
 
 import { Container, ListItem, Title } from './styled'
-
-const contacts = [
-  {
-    name: 'Phone',
-    value: '+375-29-000-00-00',
-  },
-  {
-    name: 'Email',
-    value: 'email@mail.ru',
-  },
-  {
-    name: 'Address',
-    value: 'Minsk, Belarus',
-  },
-]
 
 const ContactsInfo = () => {
   return (
     <Container data-cy="contacts">
       <Title>Contacts</Title>
       <ul>
-        {contacts.map((contact) => (
+        {TEXT.CONTACT_INFO.map(({ name, value }) => (
           <ListItem
-            key={contact.name}
-            data-testid={contact.name}
-          >{`${contact.name} : ${contact.value}`}</ListItem>
+            key={name}
+            data-testid={name}
+          >{`${name} : ${value}`}</ListItem>
         ))}
       </ul>
     </Container>

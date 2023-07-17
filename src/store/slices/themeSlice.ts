@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { Theme } from '@/constants/themes'
+import { Theme } from '@/components/GlobalThemeProvider/types'
 
 type StateType = {
   theme: Theme
@@ -12,7 +12,6 @@ const themeSlice = createSlice({
   initialState,
   reducers: {
     toggleTheme(state) {
-      // eslint-disable-next-line no-param-reassign
       state.theme = state.theme === 'LIGHT' ? 'DARK' : 'LIGHT'
     },
   },

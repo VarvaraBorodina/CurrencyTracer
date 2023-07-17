@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-const Container = styled.div`
+import { RESPONSIVE_SIZE } from '@/constants/breakpoints'
+
+const Container = styled.header`
   display: flex;
   height: ${({ theme: { SIZES } }) => SIZES.HEADER_HEIGHT}px;
   align-items: center;
@@ -12,7 +14,7 @@ const Container = styled.div`
     ${({ theme: { COLOR_THEME } }) => COLOR_THEME.GRADIENT_CENTER_COLOR} 50%,
     ${({ theme: { COLOR_THEME } }) => COLOR_THEME.GRADIENT_MAIN_COLOR} 100%
   );
-  @media (max-width: 1024px) {
+  @media (max-width: ${RESPONSIVE_SIZE}px) {
     margin: 0 auto;
     width: 95hv;
   }
@@ -22,14 +24,14 @@ const TitleContainer = styled.div`
   width: ${({ theme: { SIZES } }) => SIZES.HEADER_TITLE_WIDTH}px;
   margin-right: ${({ theme: { SPACES } }) => SPACES.L}px;
   margin-left: ${({ theme: { SPACES } }) => SPACES.L}px;
-  @media (max-width: 1024px) {
+  @media (max-width: ${RESPONSIVE_SIZE}px) {
     margin: 0 auto;
     width: 95hv;
   }
 `
 
 const Title = styled.h1`
-  font-family: 'PoppinsSemiBold';
+  font-family: ${({ theme: { FONTS } }) => FONTS.MAIN_SEMI_BOLD};
   font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.XXL}px;
   font-weight: ${({ theme: { FONT_WEIGHT } }) => FONT_WEIGHT.L};
   line-height: ${({ theme: { LINE_HEIGHT } }) => LINE_HEIGHT.XXL}px;
@@ -42,7 +44,7 @@ const Title = styled.h1`
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  @media (max-width: 1024px) {
+  @media (max-width: ${RESPONSIVE_SIZE}px) {
     font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.XL}px;
     text-align: center;
   }
@@ -52,11 +54,11 @@ const SubTitle = styled.p`
   width: ${({ theme: { SIZES } }) => SIZES.HEADER_SUBTITLE_WIDTH}px;
   margin-left: ${({ theme: { SIZES } }) => SIZES.HEADER_SUBTITLE_WIDTH}px;
   color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.TEXT_COLOR};
-  font-family: PoppinsLight;
+  font-family: ${({ theme: { FONTS } }) => FONTS.MAIN_LIGHT};
   font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.M}px;
   font-weight: ${({ theme: { FONT_WEIGHT } }) => FONT_WEIGHT.S};
   text-align: center;
-  @media (max-width: 1024px) {
+  @media (max-width: ${RESPONSIVE_SIZE}px) {
     margin: 0 auto;
     font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.S}px;
     width: 95vw;
@@ -64,7 +66,7 @@ const SubTitle = styled.p`
 `
 
 const LogoContainer = styled.div`
-  @media (max-width: 1024px) {
+  @media (max-width: ${RESPONSIVE_SIZE}px) {
     display: none;
   }
 `

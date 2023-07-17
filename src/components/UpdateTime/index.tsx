@@ -1,4 +1,4 @@
-import React from 'react'
+import TEXT from '@/constants/text'
 
 import { Container, Dot, Text } from './styled'
 
@@ -9,7 +9,7 @@ const UpdateTime = ({ time }: UpdateTimeType) => {
   return (
     <Container data-cy="update-time">
       <Dot />
-      <Text>Last updated at {time}</Text>
+      <Text>{`${TEXT.UPDATE_TIME}${time}`}</Text>
     </Container>
   )
 }

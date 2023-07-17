@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 
+import { RESPONSIVE_SIZE } from '@/constants/breakpoints'
 import { COLORS as COMMON_COLORS } from '@/constants/themes'
 
 const Container = styled.div`
@@ -8,18 +9,18 @@ const Container = styled.div`
   align-items: center;
   margin-top: ${({ theme: { SPACES } }) => SPACES.L};
   margin-bottom: ${({ theme: { SPACES } }) => SPACES.L};
-  @media (max-width: 1024px) {
+  @media (max-width: ${RESPONSIVE_SIZE}px) {
     width: 90wv;
   }
 `
 
 const Text = styled.h3`
   margin-left: ${({ theme: { SPACES } }) => SPACES.M};
-  font-family: PoppinsLight;
+  font-family: ${({ theme: { FONTS } }) => FONTS.MAIN_LIGHT};
   font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.L};
   font-weight: ${({ theme: { FONT_WEIGHT } }) => FONT_WEIGHT.S};
   color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.NAVIGATION_COLOR};
-  @media (max-width: 1024px) {
+  @media (max-width: ${RESPONSIVE_SIZE}px) {
     font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.S};
   }
 `

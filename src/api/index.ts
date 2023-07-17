@@ -1,9 +1,7 @@
-/* eslint-disable no-await-in-loop */
-/* eslint-disable no-plusplus */
 import axios from 'axios'
 
 import { Coordinate } from '@/components/Map'
-import { BANKS_URL, URL_HISTORY, URL_LATEST } from '@/constants/api'
+import { CONFIG } from '@/constants/api'
 import BANKS_WITH_CURRENCIES from '@/constants/banksWithCurrencies'
 import { BASE_CURRENCY, QUOTES } from '@/constants/currencies'
 import LOCATION from '@/constants/location'
@@ -22,9 +20,9 @@ const getMonthInfo = async (
   currency: string
 ) => {
   const monthValues = []
-  for (let i = 0; i < dates.length; i++) {
+  for (let i = 0; i < dates.length; i += 1) {
     const response = await axios.get(
-      `${URL_HISTORY}?base=${currency}&date=${dates[i]}`
+      `${CONFIG.URL_HISTORY}?base=${currency}&date=${dates[i]}`
     )
     const data = await response.data
     monthValues.push(Number(data.rates[baseCurrency]))
@@ -34,8 +32,8 @@ const getMonthInfo = async (
 
 const getCurrenciesValues = async () => {
   const response = await axios.get(
-    `${URL_LATEST}?apikey=${
-      process.env.COIN_API_KEY
+    `${CONFIG.URL_LATEST}?apikey=${
+      CONFIG.COIN_API_KEY
     }&base=${BASE_CURRENCY}&currencies=${QUOTES.map((quote) => quote.code).join(
       ','
     )}`
@@ -46,7 +44,7 @@ const getCurrenciesValues = async () => {
 
 const getCurrencyValue = async (code: string, selectedCurrencyCode: string) => {
   const response = await axios.get(
-    `${URL_LATEST}?apikey=${process.env.COIN_API_KEY}&base_currency=${selectedCurrencyCode}&currencies=${code}`
+    `${CONFIG.URL_LATEST}?apikey=${CONFIG.COIN_API_KEY}&base_currency=${selectedCurrencyCode}&currencies=${code}`
   )
 
   const currencyResponse = (await response.data).data[code]
@@ -54,7 +52,7 @@ const getCurrencyValue = async (code: string, selectedCurrencyCode: string) => {
 }
 
 const getBanksWithCurrency = async (currency: string) => {
-  const response = await axios(BANKS_URL, {
+  const response = await axios(CONFIG.BANKS_URL, {
     headers: {
       Authorization: process.env.LOCATION_API_KEY,
     },

@@ -14,24 +14,26 @@ const Container = styled.div`
   }
 `
 
-const Navigator = styled.div`
+const Navigator = styled.nav`
   display: flex;
   justify-content: space-between;
   width: ${({ theme: { SIZES } }) => SIZES.NAVIGATOR_WIDTH}px;
   margin-left: ${({ theme: { SPACES } }) => SPACES.XL}px;
   margin-right: ${({ theme: { SPACES } }) => SPACES.XL}px;
   @media (max-width: 1024px) {
+    display: none;
     width: ${({ theme: { SIZES } }) => SIZES.NAVIGATOR_WIDTH * 0.4}px;
     margin-left: ${({ theme: { SPACES } }) => SPACES.S}px;
     margin-right: ${({ theme: { SPACES } }) => SPACES.S}px;
   }
 `
 
-const Route = styled(Link)`
+const Route = styled(Link)<{ $isCurrent: boolean }>`
   color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.NAVIGATION_COLOR};
-  font-family: PoppinsLight;
+  font-family: ${({ theme: { FONTS } }) => FONTS.MAIN_LIGHT};
   font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.S}px;
   font-weight: ${({ theme: { FONT_WEIGHT } }) => FONT_WEIGHT.S}px;
+  text-decoration: ${({ $isCurrent }) => ($isCurrent ? 'underline' : 'none')}
   cursor: pointer;
   transition: all 0.3s ease-out;
   &:hover {
@@ -42,4 +44,21 @@ const Route = styled(Link)`
   }
 `
 
-export { Container, Navigator, Route }
+const Button = styled.button`
+  color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.NAVIGATION_COLOR};
+  background-color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.MAIN_COLOR};
+  font-family: ${({ theme: { FONTS } }) => FONTS.MAIN_LIGHT};
+  font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.S}px;
+  font-weight: ${({ theme: { FONT_WEIGHT } }) => FONT_WEIGHT.S}px;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  border: none;
+  display: none;
+  @media (max-width: 1024px) {
+    display: block;
+    margin-left: ${({ theme: { SPACES } }) => SPACES.M}px;
+    margin-right: ${({ theme: { SPACES } }) => SPACES.M}px;
+  }
+`
+
+export { Button, Container, Navigator, Route }

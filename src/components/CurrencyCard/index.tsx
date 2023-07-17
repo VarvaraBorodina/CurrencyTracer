@@ -1,10 +1,7 @@
-import { Container, Info, Title, Value } from './styled'
-import { Currency } from './types'
+import React from 'react'
 
-type CurrencyCardType = {
-  currency: Currency
-  handleOnClick?: (currencyCode: string, currencyName: string) => void
-}
+import { Container, Info, Title, Value } from './styled'
+import { CurrencyCardType } from './types'
 
 const CurrencyCard = ({
   currency,
@@ -26,4 +23,4 @@ CurrencyCard.defaultProps = {
   handleOnClick: () => {},
 }
 
-export default CurrencyCard
+export default React.memo(CurrencyCard)

@@ -14,13 +14,14 @@ type MapType = {
 }
 
 class Map extends React.Component<MapType> {
-  protected map: any
+  protected map: L.Map | null
 
   protected mapMarkers: Marker[]
 
-  constructor(props: any) {
+  constructor(props: MapType) {
     super(props)
     this.mapMarkers = []
+    this.map = null
   }
 
   componentDidMount(): void {
@@ -33,15 +34,17 @@ class Map extends React.Component<MapType> {
 
   updateMap() {
     const { banksCoordinates } = this.props
-    this.mapMarkers.forEach((marker) => {
-      this.map.removeLayer(marker)
-    })
-    banksCoordinates.forEach(({ latitude, longitude }) => {
-      const marker = L.marker([Number(latitude), Number(longitude)]).addTo(
-        this.map
-      )
-      this.mapMarkers.push(marker)
-    })
+    if (this.map) {
+      this.mapMarkers.forEach((marker) => {
+        this.map.removeLayer(marker)
+      })
+      banksCoordinates.forEach(({ latitude, longitude }) => {
+        const marker = L.marker([Number(latitude), Number(longitude)]).addTo(
+          this.map
+        )
+        this.mapMarkers.push(marker)
+      })
+    }
   }
 
   render() {
