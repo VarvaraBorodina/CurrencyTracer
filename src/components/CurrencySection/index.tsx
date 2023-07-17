@@ -1,15 +1,15 @@
 import { useCallback, useEffect, useState } from 'react'
+import React from 'react'
 
 import { getCurrenciesValues } from '@/api'
 import { Currency } from '@/components/CurrencyCard/types'
 import { CACHE_EXPIRES_TIME } from '@/constants/api'
-import useTypedDispatch from '@/hooks/useTypedDispatch'
-import useTypedSelector from '@/hooks/useTypedSelector'
+import { useTypedDispatch, useTypedSelector } from '@/hooks'
 import { quotesSelector, setQuotes } from '@/store/slices/quotesSlice'
 import { setUpdateTime } from '@/store/slices/timeSlice'
 
 import CurrencyCard from '../CurrencyCard'
-import Loader from '../Loader'
+import Loader from '../icons/Loader'
 import { Container, CurrencyContainer, Line, Title } from './styled'
 
 type CurrencySectionProps = {
@@ -83,4 +83,4 @@ const CurrencySection = ({
   )
 }
 
-export default CurrencySection
+export default React.memo(CurrencySection)

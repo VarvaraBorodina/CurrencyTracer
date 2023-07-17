@@ -1,4 +1,6 @@
-import Logo from '../Logo'
+import TEXT from '@/constants/text'
+
+import Logo from '../icons/Logo'
 import {
   Container,
   Content,
@@ -13,21 +15,6 @@ import {
   TitleContainer,
 } from './styled'
 
-const options = [
-  {
-    name: 'Product',
-    subOptions: ['Sparks', 'Snaps'],
-  },
-  {
-    name: 'General',
-    subOptions: ['IMarket', 'Service'],
-  },
-  {
-    name: 'Community',
-    subOptions: ['Ideas', 'Streams'],
-  },
-]
-
 const Footer = () => {
   return (
     <Container data-cy="footer">
@@ -35,17 +22,14 @@ const Footer = () => {
         <Info>
           <TitleContainer>
             <Logo width={40} height={43} />
-            <Title>Modsen Currency Tracker</Title>
+            <Title>{TEXT.TITLE}</Title>
           </TitleContainer>
           <Description data-testid="description">
-            {`Since then, the company has grown organically to. Starsup is the
-          world's largest trading platform, with $12 billion worth of currency
-          trading and 500,000 tickets sold daily to tens of thousands of traders
-          worldwide.`}
+            {TEXT.DESCRIPTION}
           </Description>
         </Info>
         <Menu>
-          {options.map(({ subOptions, name }) => (
+          {TEXT.FOOTER_OPTIONS.map(({ subOptions, name }) => (
             <MenuOption key={name}>
               <OptionTitle>{name}</OptionTitle>
               {subOptions.map((subOption) => (
@@ -55,7 +39,7 @@ const Footer = () => {
           ))}
         </Menu>
       </Content>
-      <Policy>Startsup © 2023-2024, All Rights Reserved</Policy>
+      <Policy>{TEXT.POLICY}</Policy>
     </Container>
   )
 }

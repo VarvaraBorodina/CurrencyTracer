@@ -5,12 +5,15 @@ import {
   COLORS,
   FONT_SIZE,
   FONT_WEIGHT,
+  FONTS,
   LINE_HEIGHT,
   SIZES,
   SPACES,
-  Theme,
+  Z_INDEX,
 } from '@/constants/themes'
-import useTypedSelector from '@/hooks/useTypedSelector'
+import { useTypedSelector } from '@/hooks'
+
+import { Theme } from './types'
 
 const GlobalThemProvider: React.FC<{ children: JSX.Element }> = ({
   children,
@@ -27,6 +30,8 @@ const GlobalThemProvider: React.FC<{ children: JSX.Element }> = ({
     LINE_HEIGHT,
     SIZES,
     SPACES,
+    FONTS,
+    Z_INDEX,
   }
 
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>

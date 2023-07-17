@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { RESPONSIVE_SIZE } from '@/constants/breakpoints'
+
 const Container = styled.div`
   display: flex;
   width: ${({ theme: { SIZES } }) => SIZES.CARD_WIDTH}px;
@@ -10,7 +12,7 @@ const Container = styled.div`
     ${({ theme: { COLOR_THEME } }) => COLOR_THEME.CARD_BORDER_COLOR};
   border-radius: 8px;
   cursor: pointer;
-  @media (max-width: 1024px) {
+  @media (max-width: ${RESPONSIVE_SIZE}px) {
     width: 90vw;
     padding: ${({ theme: { SPACES } }) => SPACES.S};
   }
@@ -23,7 +25,7 @@ const Info = styled.div`
 `
 
 const Title = styled.h3`
-  font-family: PoppinsLight;
+  font-family: ${({ theme: { FONTS } }) => FONTS.MAIN_LIGHT};
   font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.L};
   font-weight: ${({ theme: { FONT_WEIGHT } }) => FONT_WEIGHT.S};
   color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.TEXT_COLOR};
@@ -32,8 +34,8 @@ const Title = styled.h3`
   }
 `
 
-const Value = styled.div`
-  font-family: PoppinsLight;
+const Value = styled.p`
+  font-family: ${({ theme: { FONTS } }) => FONTS.MAIN_LIGHT};
   font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.L};
   font-weight: ${({ theme: { FONT_WEIGHT } }) => FONT_WEIGHT.S};
   color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.LIGHTER_TEXT_COLOR};

@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import { getCurrencyValue } from '@/api'
 import { QUOTES } from '@/constants/currencies'
+import TEXT from '@/constants/text'
 
 import { Option, OptionContainer, Text } from './styled'
 
@@ -9,10 +10,13 @@ type CurrencyModalType = {
   code: string
 }
 
-const CurrencyModal = ({ code }: CurrencyModalType) => {
-  const currency = QUOTES.find((quote) => quote.code === code)
+const CurrencyModal = ({ code: baseCurrencyCode }: CurrencyModalType) => {
+  const currency = useMemo(
+    () => QUOTES.find(({ code }) => code === baseCurrencyCode),
+    [baseCurrencyCode]
+  )
   const [selectedCurrencyCode, setSelectedCurrencyCode] = useState('')
-  const [modalMessage, setModalMessage] = useState('Choose Currency...')
+  const [modalMessage, setModalMessage] = useState(TEXT.MODAL_TEXT)
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState<boolean>(false)
 
@@ -24,10 +28,13 @@ const CurrencyModal = ({ code }: CurrencyModalType) => {
     const fetchCurrencyValue = async () => {
       try {
         setIsLoading(true)
-        const value = await getCurrencyValue(code, selectedCurrencyCode)
+        const value = await getCurrencyValue(
+          baseCurrencyCode,
+          selectedCurrencyCode
+        )
         setModalMessage(
           `1 ${
-            QUOTES.find((quote) => quote.code === selectedCurrencyCode)?.name
+            QUOTES.find(({ code }) => code === selectedCurrencyCode)?.name
           } = ${value} ${currency?.name}`
         )
         setIsLoading(false)
@@ -38,34 +45,34 @@ const CurrencyModal = ({ code }: CurrencyModalType) => {
     if (selectedCurrencyCode) {
       fetchCurrencyValue()
     }
-  }, [selectedCurrencyCode, code])
+  }, [selectedCurrencyCode, baseCurrencyCode])
 
   if (!currency) {
-    return <Text>Currency not found</Text>
+    return <Text>{TEXT.NOT_FOUND}</Text>
   }
   if (isError) {
-    return <Text>Something went wrong...</Text>
+    return <Text>{TEXT.ERROR}</Text>
   }
   return (
     <>
       <Text>{currency?.name}</Text>
       <OptionContainer>
         {QUOTES.map(
-          (quote) =>
-            quote.code !== code && (
+          ({ code, name }) =>
+            code !== baseCurrencyCode && (
               <Option
-                $selected={selectedCurrencyCode === quote.code}
-                key={quote.code}
-                onClick={() => handleOnCurrencyClick(quote.code)}
-                data-cy={`modal-option-${quote.code}`}
+                $selected={selectedCurrencyCode === code}
+                key={code}
+                onClick={() => handleOnCurrencyClick(code)}
+                data-cy={`modal-option-${code}`}
               >
-                {quote.name}
+                {name}
               </Option>
             )
         )}
       </OptionContainer>
       <Text data-cy="modal-message">
-        {isLoading ? 'Loading...' : modalMessage}
+        {isLoading ? TEXT.MODAL_LOADER : modalMessage}
       </Text>
     </>
   )

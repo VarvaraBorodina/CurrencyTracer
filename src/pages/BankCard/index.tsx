@@ -1,17 +1,17 @@
 import React from 'react'
 
 import { getBanksWithCurrency } from '@/api'
-import ElasticSearch from '@/components/ElasticSearch'
 import Map, { Coordinate } from '@/components/Map'
-import LOCATION from '@/constants/location'
+import ElasticSearch from '@/components/ui/ElasticSearch'
+import TEXT from '@/constants/text'
 import { getCurreenciesNames, getCurreencyByName } from '@/utils/currencyParser'
 
 type BankCardType = {
   banksWithCurency: Coordinate[]
 }
 
-class BankCard extends React.Component<never, BankCardType> {
-  constructor(props: never) {
+class BankCard extends React.Component<object, BankCardType> {
+  constructor(props: object) {
     super(props)
     this.state = {
       banksWithCurency: [],
@@ -34,7 +34,7 @@ class BankCard extends React.Component<never, BankCardType> {
       <>
         <ElasticSearch
           options={currenciesNames}
-          title="Search currency in the bank"
+          title={TEXT.SEARCH_PLACEHOLDER}
           changeValue={handleChangeValue}
         />
         <Map banksCoordinates={banksWithCurency} />

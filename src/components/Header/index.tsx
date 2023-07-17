@@ -1,8 +1,9 @@
 import NavigationBar from '@/components/NavigationBar'
-import useTypedSelector from '@/hooks/useTypedSelector'
+import TEXT from '@/constants/text'
+import { useTypedSelector } from '@/hooks'
 import { timestampToHoursMinutes } from '@/utils/formatDate'
 
-import Logo from '../Logo'
+import Logo from '../icons/Logo'
 import UpdateTime from '../UpdateTime'
 import {
   Container,
@@ -13,18 +14,14 @@ import {
 } from './styled'
 
 const Header = () => {
-  const lastUpdateTime: number = useTypedSelector((state) => {
-    return state.time
-  })
+  const lastUpdateTime: number = useTypedSelector((state) => state.time)
   return (
     <>
       <NavigationBar />
       <Container data-cy="header">
         <TitleContainer>
-          <Title>Modsen Currency Tracker</Title>
-          <SubTitle>
-            Quotes for the dollar and other international currencies.
-          </SubTitle>
+          <Title>{TEXT.TITLE}</Title>
+          <SubTitle>{TEXT.SUB_TITLE}</SubTitle>
         </TitleContainer>
         <LogoContainer>
           <Logo width={300} height={312} />
