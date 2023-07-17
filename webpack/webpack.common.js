@@ -41,7 +41,7 @@ module.exports = {
       template: path.resolve(__dirname, '..', './public/index.html'),
       favicon: path.resolve(__dirname, '..', './public/icons/favicon.ico'),
     }),
-    new Dotenv(),
+    new Dotenv({ systemvars: true }),
   ],
   stats: 'errors-only',
   devServer: {
