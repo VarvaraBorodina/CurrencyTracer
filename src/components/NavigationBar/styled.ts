@@ -33,7 +33,7 @@ const Route = styled(Link)<{ $isCurrent: boolean }>`
   font-family: ${({ theme: { FONTS } }) => FONTS.MAIN_LIGHT};
   font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.S}px;
   font-weight: ${({ theme: { FONT_WEIGHT } }) => FONT_WEIGHT.S}px;
-  text-decoration: ${({ $isCurrent }) => ($isCurrent ? 'underline' : 'none')}
+  text-decoration: ${({ $isCurrent }) => ($isCurrent ? 'underline' : 'none')};
   cursor: pointer;
   transition: all 0.3s ease-out;
   &:hover {
