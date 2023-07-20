@@ -2,23 +2,16 @@ import { useCallback, useEffect, useState } from 'react'
 import React from 'react'
 
 import { getCurrenciesValues } from '@/api'
+import CurrencyCard from '@/components/CurrencyCard'
 import { Currency } from '@/components/CurrencyCard/types'
+import Loader from '@/components/icons/Loader'
 import { CACHE_EXPIRES_TIME } from '@/constants/api'
 import { useTypedDispatch, useTypedSelector } from '@/hooks'
 import { quotesSelector, setQuotes } from '@/store/slices/quotesSlice'
 import { setUpdateTime } from '@/store/slices/timeSlice'
 
-import CurrencyCard from '../CurrencyCard'
-import Loader from '../icons/Loader'
 import { Container, CurrencyContainer, Line, Title } from './styled'
-
-type CurrencySectionProps = {
-  title: string
-  handleOnCurrencyCardClick: (
-    currencyCode: string,
-    currencyName: string
-  ) => void
-}
+import { CurrencySectionProps } from './types'
 
 const CurrencySection = ({
   title,

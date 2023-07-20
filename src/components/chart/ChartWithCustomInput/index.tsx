@@ -1,14 +1,11 @@
 import React from 'react'
 
-import ChartView, { ChartViewType } from '@/components/chart/ChartView'
-import ChartCustomInputObserver, {
-  CustomInputObserverFunction,
-} from '@/utils/chartCustomInputObserver'
+import ChartView from '@/components/chart/ChartView/'
+import { ChartViewType } from '@/components/chart/ChartView/types'
+import ChartCustomInputObserver from '@/utils/chartCustomInputObserver'
+import { CustomInputObserverFunction } from '@/utils/types'
 
-type ChartType = {
-  values: number[]
-  time: string[]
-}
+import { ChartType } from './types'
 
 class Chart extends React.PureComponent<object, ChartType> {
   constructor(props: object) {

@@ -12,13 +12,7 @@ import { getCurreencyByName } from '@/utils/currencyParser'
 import { getLastMonthDates } from '@/utils/formatDate'
 
 import Text from './styled'
-
-type ChartType = {
-  values: number[]
-  time: string[]
-  isLoading: boolean
-  isError: boolean
-}
+import { ChartType } from './types'
 
 class ChartWithAPI extends React.PureComponent<object, ChartType> {
   constructor(props: object) {

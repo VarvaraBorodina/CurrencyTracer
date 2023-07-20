@@ -1,11 +1,5 @@
 import { getCurreencyByName } from './currencyParser'
-
-export type ObserverFunction = (params: ChartParams | undefined) => void
-export type ModalObserverFunction = (message: string) => void
-export type ChartParams = {
-  baseCurrencyName: string
-  currencyName: string
-}
+import { ChartParams, ModalObserverFunction, ObserverFunction } from './types'
 
 class ChartParamsFormObserver {
   observers: ObserverFunction[]

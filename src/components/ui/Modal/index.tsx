@@ -1,11 +1,6 @@
-import { ReactNode } from 'react'
-
 import { Container, Content } from './styled'
+import { ModalTypes } from './types'
 
-type ModalTypes = {
-  setIsActive: (isActive: boolean) => void
-  children: ReactNode
-}
 const Modal = ({ setIsActive, children }: ModalTypes) => {
   return (
     <Container

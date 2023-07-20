@@ -1,9 +1,6 @@
 import { COLORS } from '@/constants/themes'
 
-type LogoProps = {
-  height: number
-  width: number
-}
+import { LogoProps } from './types'
 
 const Logo = ({ height, width }: LogoProps) => {
   return (

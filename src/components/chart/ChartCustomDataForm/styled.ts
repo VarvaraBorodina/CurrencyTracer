@@ -3,10 +3,14 @@ import styled from 'styled-components'
 import { RESPONSIVE_SIZE } from '@/constants/breakpoints'
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100;
   width: ${({ theme: { SIZES } }) => SIZES.FOOTER_WIDTH}px;
   padding: ${({ theme: { SPACES } }) => SPACES.M}px;
-  margin-top: ${({ theme: { SPACES } }) => SPACES.M}px;
+  margin-top: ${({ theme: { SPACES } }) => SPACES.L}px;
   font-family: ${({ theme: { FONTS } }) => FONTS.MAIN_LIGHT};
   font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.L};
   font-weight: ${({ theme: { FONT_WEIGHT } }) => FONT_WEIGHT.S};
@@ -14,6 +18,7 @@ const Container = styled.div`
   @media (max-width: ${RESPONSIVE_SIZE}px) {
     width: 100vw;
     margin: 0 auto;
+    margin-top: ${({ theme: { SPACES } }) => SPACES.M}px;
   }
 `
 
@@ -25,6 +30,8 @@ const Title = styled.h3`
   color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.NAVIGATION_COLOR};
   @media (max-width: ${RESPONSIVE_SIZE}px) {
     margin: 0 auto;
+    margin-top: ${({ theme: { SPACES } }) => SPACES.M}px;
+    margin-bottom: ${({ theme: { SPACES } }) => SPACES.M}px;
     text-align: center;
     font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.S};
   }
@@ -45,6 +52,7 @@ const Label = styled.label`
 const Input = styled.input`
   width: ${({ theme: { SIZES } }) => SIZES.CARD_WIDTH * 0.5}px;
   padding: ${({ theme: { SPACES } }) => SPACES.M * 0.5};
+  margin: ${({ theme: { SPACES } }) => SPACES.M * 0.5};
   background-color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.MAIN_COLOR};
   border: ${({ theme: { SIZES } }) => SIZES.TOGGLE_BORDER_SIZE}px solid
     ${({ theme: { COLOR_THEME } }) => COLOR_THEME.CARD_BORDER_COLOR};
@@ -72,6 +80,7 @@ const Button = styled.button`
     margin-top: ${({ theme: { SPACES } }) => SPACES.S};
     margin-left: 0;
     width: 60vw;
+    max-width: ${({ theme: { SIZES } }) => SIZES.CARD_WIDTH * 0.5}px;
     font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.XS};
   }
 `

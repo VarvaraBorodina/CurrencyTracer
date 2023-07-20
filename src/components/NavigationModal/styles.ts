@@ -1,5 +1,7 @@
 import { styled } from 'styled-components'
 
+import { RESPONSIVE_SIZE } from '@/constants/breakpoints'
+
 const Route = styled.button<{ $isCurrent: boolean }>`
   color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.NAVIGATION_COLOR};
   background-color: ${({ theme: { COLOR_THEME } }) => COLOR_THEME.MAIN_COLOR};
@@ -10,7 +12,7 @@ const Route = styled.button<{ $isCurrent: boolean }>`
   text-decoration: ${({ $isCurrent }) => ($isCurrent ? 'underline' : 'none')};
   border: none;
   display: none;
-  @media (max-width: 1024px) {
+  @media (max-width: ${RESPONSIVE_SIZE}px) {
     display: block;
     margin-left: ${({ theme: { SPACES } }) => SPACES.M}px;
     margin-right: ${({ theme: { SPACES } }) => SPACES.M}px;

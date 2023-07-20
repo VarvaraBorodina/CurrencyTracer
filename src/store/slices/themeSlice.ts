@@ -1,10 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { Theme } from '@/components/GlobalThemeProvider/types'
+import { StateType } from './types'
 
-type StateType = {
-  theme: Theme
-}
 const initialState: StateType = { theme: 'DARK' }
 
 const themeSlice = createSlice({

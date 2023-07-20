@@ -1,8 +1,8 @@
 import React from 'react'
 
+import { ReactComponent as SearchIcon } from '@/assets/icons/SearchIcon.svg'
 import TEXT from '@/constants/text'
 
-import { ReactComponent as SearchIcon } from '../../../assets/icons/SearchIcon.svg'
 import {
   Container,
   Input,

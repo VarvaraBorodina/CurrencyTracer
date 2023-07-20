@@ -1,6 +1,6 @@
+import Logo from '@/components/icons/Logo'
 import TEXT from '@/constants/text'
 
-import Logo from '../icons/Logo'
 import {
   Container,
   Content,

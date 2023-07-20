@@ -1,18 +1,24 @@
-import { ChartViewType } from '@/components/ChartView'
+import { ChartViewType } from '@/components/chart/ChartView/types'
+import TEXT from '@/constants/text'
 
-export type CustomInputObserverFunction = (
-  params: ChartViewType | undefined
-) => void
+import { CustomInputObserverFunction, ModalObserverFunction } from './types'
 
 class ChartCustomInputObserver {
   observers: CustomInputObserverFunction[]
 
+  modalObservers: ModalObserverFunction[]
+
   constructor() {
     this.observers = []
+    this.modalObservers = []
   }
 
   public subscribe(func: CustomInputObserverFunction) {
     this.observers.push(func)
+  }
+
+  public subscribeModal(func: ModalObserverFunction) {
+    this.modalObservers.push(func)
   }
 
   public unsubcribe(func: CustomInputObserverFunction) {
@@ -24,6 +30,9 @@ class ChartCustomInputObserver {
   public notify(params: ChartViewType) {
     this.observers.forEach((observer: CustomInputObserverFunction) => {
       observer(params)
+    })
+    this.modalObservers.forEach((modalObserver: ModalObserverFunction) => {
+      modalObserver(TEXT.MODAL_MESSAGE_OK)
     })
   }
 }

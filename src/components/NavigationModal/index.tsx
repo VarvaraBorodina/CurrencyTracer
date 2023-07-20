@@ -1,16 +1,9 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import Modal from '../ui/Modal'
+import Modal from '@/components/ui/Modal'
+
 import { Route } from './styles'
 import { NavigationModalType, RouteType } from './types'
-
-/*
-handleOnOptionClick = (id, option)=>() => { то же что и было в этом методе }
-
-...
-
-onClick={this.handleOnOptionClick(id,option)}
-*/
 
 const NavigationModal = ({ routes, setIsActive }: NavigationModalType) => {
   const currentPath = useLocation().pathname
