@@ -3,11 +3,13 @@ import { Rectangle } from 'recharts'
 
 import { COLORS } from '@/constants/themes'
 
-const CustomChartRectangle = ({ formattedGraphicalItems }: any) => {
+import { CustomChartType, Point } from './types'
+
+const CustomChartRectangle = ({ formattedGraphicalItems }: CustomChartType) => {
   const [firstSeries, secondSeries] = formattedGraphicalItems
 
   return firstSeries?.props?.points.map(
-    (firstSeriesPoint: any, index: number) => {
+    (firstSeriesPoint: Point, index: number) => {
       const secondSeriesPoint = secondSeries?.props?.points[index]
       const yDifference = firstSeriesPoint.y - secondSeriesPoint.y
 

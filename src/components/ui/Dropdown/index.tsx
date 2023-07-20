@@ -3,13 +3,8 @@ import React from 'react'
 import DropdownArrow from '@/components/icons/DropdownArrow'
 
 import { Container, Input, Option, OptionContainer, Title } from './styled'
+import { DropdownType } from './types'
 
-type DropdownType = {
-  title: string
-  setTitle: (newTitle: string, id: number) => void
-  id: number
-  options: string[]
-}
 class Dropdown extends React.Component<DropdownType, { isOpen: boolean }> {
   constructor(props: DropdownType) {
     super(props)

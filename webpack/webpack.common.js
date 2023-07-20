@@ -18,6 +18,24 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
+            options: {
+              presets: [
+                '@babel/preset-env',
+                ['@babel/preset-react', { runtime: 'automatic' }],
+              ],
+              plugins: [
+                '@babel/plugin-proposal-class-properties',
+                'inline-react-svg', // apply babel-plugin-inline-react-svg
+                [
+                  'module-resolver', //  apply babel-plugin-module-resolver
+                  {
+                    alias: {
+                      '@': './src',
+                    },
+                  },
+                ],
+              ],
+            },
           },
         ],
       },

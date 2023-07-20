@@ -1,18 +1,12 @@
 import axios from 'axios'
 
-import { Coordinate } from '@/components/Map'
+import { Coordinate } from '@/components/Map/types'
 import { CONFIG } from '@/constants/api'
 import BANKS_WITH_CURRENCIES from '@/constants/banksWithCurrencies'
 import { BASE_CURRENCY, QUOTES } from '@/constants/currencies'
 import LOCATION from '@/constants/location'
 
-type Geocodes = {
-  main: Coordinate
-}
-type BankInfo = {
-  geocodes: Geocodes
-  fsq_id: string
-}
+import { BankInfo } from './types'
 
 const getMonthInfo = async (
   dates: string[],

@@ -5,20 +5,18 @@ import { QUOTES } from '@/constants/currencies'
 import TEXT from '@/constants/text'
 
 import { Option, OptionContainer, Text } from './styled'
-
-type CurrencyModalType = {
-  code: string
-}
+import { CurrencyModalType } from './types'
 
 const CurrencyModal = ({ code: baseCurrencyCode }: CurrencyModalType) => {
-  const currency = useMemo(
-    () => QUOTES.find(({ code }) => code === baseCurrencyCode),
-    [baseCurrencyCode]
-  )
   const [selectedCurrencyCode, setSelectedCurrencyCode] = useState('')
   const [modalMessage, setModalMessage] = useState(TEXT.MODAL_TEXT)
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState<boolean>(false)
+
+  const currency = useMemo(
+    () => QUOTES.find(({ code }) => code === baseCurrencyCode),
+    [baseCurrencyCode]
+  )
 
   const handleOnCurrencyClick = (selectedCode: string) => {
     setSelectedCurrencyCode(selectedCode)

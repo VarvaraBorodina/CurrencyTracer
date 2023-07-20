@@ -1,10 +1,10 @@
+import Logo from '@/components/icons/Logo'
 import NavigationBar from '@/components/NavigationBar'
+import UpdateTime from '@/components/UpdateTime'
 import TEXT from '@/constants/text'
 import { useTypedSelector } from '@/hooks'
 import { timestampToHoursMinutes } from '@/utils/formatDate'
 
-import Logo from '../icons/Logo'
-import UpdateTime from '../UpdateTime'
 import {
   Container,
   LogoContainer,

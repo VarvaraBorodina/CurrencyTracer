@@ -13,9 +13,7 @@ import {
   Z_INDEX,
 } from '@/constants/themes'
 
-type MockWrapperType = {
-  children: JSX.Element
-}
+import { MockWrapperType } from './types'
 
 function MockWrapper({ children }: MockWrapperType) {
   const theme = {

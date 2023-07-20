@@ -1,14 +1,12 @@
 import React from 'react'
 
 import { getBanksWithCurrency } from '@/api'
-import Map, { Coordinate } from '@/components/Map'
+import Map from '@/components/Map'
 import ElasticSearch from '@/components/ui/ElasticSearch'
 import TEXT from '@/constants/text'
 import { getCurreenciesNames, getCurreencyByName } from '@/utils/currencyParser'
 
-type BankCardType = {
-  banksWithCurency: Coordinate[]
-}
+import { BankCardType } from './types'
 
 class BankCard extends React.Component<object, BankCardType> {
   constructor(props: object) {

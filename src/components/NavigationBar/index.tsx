@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
+import Logo from '@/components/icons/Logo'
+import MenuIcon from '@/components/icons/MenuIcon'
+import NavigationModal from '@/components/NavigationModal'
+import Toggle from '@/components/ui/Toggle'
 import ROUTES_NAMES from '@/constants/routesNames'
 import TEXT from '@/constants/text'
 
-import Logo from '../icons/Logo'
-import NavigationModal from '../NavigationModal'
-import Toggle from '../ui/Toggle'
 import { Button, Container, Navigator, Route } from './styled'
 
 const { CONTACTS, TIMELINE, BANKCARD, HOME } = ROUTES_NAMES
@@ -48,7 +49,10 @@ const NavigationBar = () => {
           </Route>
         ))}
       </Navigator>
-      <Button onClick={() => setIsModal(true)}>Change Page</Button>
+      <Button onClick={() => setIsModal(true)}>
+        <MenuIcon />
+        Change Page
+      </Button>
       {isModal && <NavigationModal routes={routes} setIsActive={setIsModal} />}
       <Toggle />
     </Container>

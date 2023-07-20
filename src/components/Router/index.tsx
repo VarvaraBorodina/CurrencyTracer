@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import ROUTES_NAMES from '@/constants/routesNames'
 import TEXT from '@/constants/text'
+import Loader from '../icons/Loader'
 
 const { CONTACTS, TIMELINE, BANKCARD, HOME } = ROUTES_NAMES
 
@@ -31,7 +32,7 @@ export const routes = [
 ]
 
 const Router = () => (
-  <Suspense fallback={<h1>{TEXT.MODAL_LOADER}</h1>}>
+  <Suspense fallback={<Loader />}>
     <Routes>
       {routes.map(({ path, component }) => (
         <Route key={path} path={path} element={component} />

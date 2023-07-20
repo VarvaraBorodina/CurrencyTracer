@@ -22,7 +22,7 @@ class ChartModal extends React.Component<
 
   componentDidMount(): void {
     ChartParamsObserver.subscribeModal(this.handleChartCanBeCreated)
-    ChartCustomInputObserver.subscribe(this.handleChartCanBeCreated)
+    ChartCustomInputObserver.subscribeModal(this.handleChartCanBeCreated)
   }
 
   componentWillUnmount(): void {

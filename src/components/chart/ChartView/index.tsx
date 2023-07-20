@@ -9,13 +9,10 @@ import {
   YAxis,
 } from 'recharts'
 
-import CustomChartRectangle from '../CustomChartRectangle'
-import Chart from './styled'
+import CustomChartRectangle from '@/components/chart/CustomChartRectangle'
 
-export type ChartViewType = {
-  values: number[]
-  time: string[]
-}
+import Chart from './styled'
+import { ChartViewType } from './types'
 
 class ChartView extends React.PureComponent<ChartViewType> {
   render() {
@@ -33,13 +30,18 @@ class ChartView extends React.PureComponent<ChartViewType> {
       }
 
       if (values[i - 1] === values[i]) {
-        values[i - 1] += values[i - 1] * 0.0001
+        values[i - 1] += values[i - 1] * 0.001
       }
       chartData.push({
         name: time[i],
         previousValue: values[i - 1],
         currentValue: values[i],
       })
+    }
+
+    if (maxDataValue === minDataValue) {
+      maxDataValue += maxDataValue * 0.1
+      minDataValue -= minDataValue * 0.1
     }
 
     if (maxDataValue > 0) {

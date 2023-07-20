@@ -1,10 +1,12 @@
 import { styled } from 'styled-components'
 
+import { RESPONSIVE_SIZE } from '@/constants/breakpoints'
+
 const Container = styled.div`
   margin: 0 auto;
   width: ${({ theme: { SIZES } }) => SIZES.FOOTER_WIDTH}px;
   margin-bottom: ${({ theme: { SPACES } }) => SPACES.L * 3};
-  @media (max-width: 1024px) {
+  @media (max-width: ${RESPONSIVE_SIZE}px) {
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -24,8 +26,10 @@ const Button = styled.button`
     ${({ theme: { COLOR_THEME } }) => COLOR_THEME.CARD_BORDER_COLOR};
   border-radius: 8px;
   cursor: pointer;
-  @media (max-width: 1024px) {
+  @media (max-width: ${RESPONSIVE_SIZE}px) {
     width: 90vw;
+    max-width: ${({ theme: { SIZES } }) => SIZES.CARD_WIDTH}px;
+    margin-bottom: ${({ theme: { SPACES } }) => SPACES.M}px;
     text-align: center;
     font-size: ${({ theme: { FONT_SIZE } }) => FONT_SIZE.S};
   }

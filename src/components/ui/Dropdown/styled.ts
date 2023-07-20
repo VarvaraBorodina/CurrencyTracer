@@ -19,6 +19,7 @@ const Input = styled.div`
   cursor: pointer;
   @media (max-width: ${RESPONSIVE_SIZE}px) {
     width: 90vw;
+    max-width: ${({ theme: { SIZES } }) => SIZES.CARD_WIDTH}px;
     margin-top: ${({ theme: { SPACES } }) => SPACES.S};
   }
 `
@@ -51,6 +52,7 @@ const OptionContainer = styled.li`
 
   @media (max-width: ${RESPONSIVE_SIZE}px) {
     width: 90vw;
+    max-width: ${({ theme: { SIZES } }) => SIZES.CARD_WIDTH}px;
     margin-top: ${({ theme: { SPACES } }) => SPACES.XS};
   }
 `

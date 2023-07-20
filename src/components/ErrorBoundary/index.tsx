@@ -1,24 +1,18 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 
 import TEXT from '@/constants/text'
 
-interface Props {
-  children: ReactNode
-}
+import { ErrorProps, ErrorState } from './types'
 
-interface State {
-  hasError: boolean
-}
-
-class ErrorBoundary extends React.Component<Props, State> {
-  constructor(props: Props) {
+class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
+  constructor(props: ErrorProps) {
     super(props)
     this.state = {
       hasError: false,
     }
   }
 
-  static getDerivedStateFromError(): State {
+  static getDerivedStateFromError(): ErrorState {
     return { hasError: true }
   }
 

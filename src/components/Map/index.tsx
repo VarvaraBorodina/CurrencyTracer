@@ -4,14 +4,7 @@ import React from 'react'
 import LOCATION from '@/constants/location'
 
 import { Container, MapBlock } from './styled'
-
-export type Coordinate = {
-  latitude: number
-  longitude: number
-}
-type MapType = {
-  banksCoordinates: Coordinate[]
-}
+import { MapType } from './types'
 
 class Map extends React.Component<MapType> {
   protected map: L.Map | null
